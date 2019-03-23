@@ -1,0 +1,8 @@
+name: MCCPU
+main: MCCPU
+version: 0.1
+api-version: 1.13
+commands:
+    mccpu:
+        description: MCCPU
+        usage: /mccpu
