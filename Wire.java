@@ -61,7 +61,7 @@ class Wire implements Renderer {
             } else {
                 target.setBlock(put);
             }
-            if (repeaters.contains(put)) {
+            if (repeaters.contains(location)) {
                 strength = 0;
             }
             if (strength == 0) {
