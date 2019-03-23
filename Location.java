@@ -1,5 +1,18 @@
-public class Location {
+class Location {
     private int x, y, z;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (super.equals(obj)) return true;
+        if (!(obj instanceof  Location)) return false;
+        Location other = (Location) obj;
+        return x == other.x && y == other.y && z == other.z;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ", " + z + ")";
+    }
 
     Location(int x, int y, int z) {
         this.x = x;
@@ -7,9 +20,9 @@ public class Location {
         this.z = z;
     }
 
-    public int getX() { return x; }
-    public int getY() { return y; }
-    public int getZ() { return z; }
+    int getX() { return x; }
+    int getY() { return y; }
+    int getZ() { return z; }
 
     Location above(int dy) {
         return new Location(x, y + dy, z);

@@ -1,3 +1,4 @@
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -9,6 +10,11 @@ public class MCRenderTarget implements RenderTarget {
 
     MCRenderTarget(World world) {
         this.world = world;
+    }
+
+    @Override
+    public void message(String msg) {
+        Bukkit.broadcastMessage(msg);
     }
 
     @Override
