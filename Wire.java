@@ -42,11 +42,11 @@ class Wire implements Renderer {
         int strength = 0;
         for (int i = 0; i <= len; ++i) {
             Location location = new Location(from.getX() + sx * i, from.getY(), from.getZ() + sz * i);
-            target.setBlock(location);
             if (holes.contains(location)) {
                 strength = 0;
                 continue;
             }
+            target.setBlock(location);
             if (repeaters.contains(location)) {
                 strength = 0;
             }
