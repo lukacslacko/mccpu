@@ -13,6 +13,7 @@ class Wire implements Renderer {
     // Locations where repeaters need to be added due to intersecting wires passing just below.
     private List<Location> repeaters = new ArrayList<>();
 
+    // Wire connecting from and to, inclusive both.
     Wire(Location from, Location to, String id) {
         this.from = from;
         this.to = to;
@@ -36,7 +37,7 @@ class Wire implements Renderer {
         int sx = Integer.compare(dx, 0);
         int sz = Integer.compare(dz, 0);
         int strength = 0;
-        for (int i = 0; i < len; ++i) {
+        for (int i = 0; i <= len; ++i) {
             Location location = new Location(from.getX() + sx * i, from.getY(), from.getZ() + sz * i);
             target.setBlock(location);
             if (repeaters.contains(location)) {
