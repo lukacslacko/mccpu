@@ -21,7 +21,11 @@ class Wire implements Renderer {
         for (int i = 0; i < len; ++i) {
             Location location = new Location(from.getX() + sx * i, from.getY(), from.getZ() + sz * i);
             target.setBlock(location);
-            target.setWire(location.above(1));
+            if (i % 16 == 0) {
+                target.setRepeater(location.above(1), Utils.facingXZ(dx, dz));
+            } else {
+                target.setWire(location.above(1));
+            }
         }
     }
 }

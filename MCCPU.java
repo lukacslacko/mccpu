@@ -16,7 +16,7 @@ public class MCCPU extends JavaPlugin {
                     new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
             Wire wire = new Wire(
                     playerLocation.shifted(new Vector(3, 3, 3)),
-                    playerLocation.shifted(new Vector(13, 3, 3)),
+                    playerLocation.shifted(new Vector(23, 3, 3)),
                     "wire");
             wire.render(target);
         }
