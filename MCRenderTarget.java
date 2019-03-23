@@ -4,6 +4,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Repeater;
+import org.bukkit.block.data.type.Slab;
 
 public class MCRenderTarget implements RenderTarget {
     private World world;
@@ -34,5 +35,14 @@ public class MCRenderTarget implements RenderTarget {
         Repeater repeater = (Repeater) block.getBlockData();
         repeater.setFacing(facing);
         block.setBlockData(repeater);
+    }
+
+    @Override
+    public void setTopSlab(Location location) {
+        Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
+        block.setType(Material.QUARTZ_SLAB);
+        Slab slab = (Slab) block.getBlockData();
+        slab.setType(Slab.Type.TOP);
+        block.setBlockData(slab);
     }
 }

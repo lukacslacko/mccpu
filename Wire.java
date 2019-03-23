@@ -10,11 +10,17 @@ class Wire implements Renderer {
 
     private String deferredMessage = "";
 
-    // Locations where repeaters need to be added due to intersecting wires passing just below.
+    // Locations where repeaters need to be added due to intersecting wires.
     private List<Location> repeaters = new ArrayList<>();
 
-    // Locations which need to be left out due to an intersecting wire passing just above.
+    // Locations which need to be left out due to an intersecting wire.
     private List<Location> holes = new ArrayList<>();
+
+    // Locations where slabs need to be added due to an intersection.
+    private List<Location> slabs = new ArrayList<>();
+
+    // Locations which need to be raised due to an intersection.
+    private List<Location> raised = new ArrayList<>();
 
     // Wire connecting from and to, inclusive both.
     Wire(Location from, Location to, String id) {
@@ -46,15 +52,23 @@ class Wire implements Renderer {
                 strength = 0;
                 continue;
             }
-            target.setBlock(location);
-            if (repeaters.contains(location)) {
+            Location put = location;
+            if (raised.contains(location)) {
+                put = location.above(1);
+            }
+            if (slabs.contains(location)) {
+                target.setTopSlab(put);
+            } else {
+                target.setBlock(put);
+            }
+            if (repeaters.contains(put)) {
                 strength = 0;
             }
             if (strength == 0) {
-                target.setRepeater(location.above(1), Utils.facingXZ(dx, dz));
+                target.setRepeater(put.above(1), Utils.facingXZ(dx, dz));
                 strength = 15;
             } else {
-                target.setWire(location.above(1));
+                target.setWire(put.above(1));
                 --strength;
             }
         }
@@ -64,22 +78,32 @@ class Wire implements Renderer {
         return from.getY();
     }
 
-    // The other wire must pass orthogonal to this one, just below it. This function causes holes and repeaters added
-    // as necessary to both this wire and the one below.
-    void intersectWithWireBelow(Wire below) {
-        if (below.getY() + 1 != getY()) {
-            deferredMessage += " intersection: below (" + below.getId() + ") y = " + below.getY() + " this y = " + getY();
+    // The other wire must pass orthogonal to this one, at the same y coordinate. This function causes holes, repeaters,
+    // slabs and raised blocks adde as necessary to both wires.
+    void intersectWith(Wire other) {
+        if (other.getY() != getY()) {
+            deferredMessage += " intersection: other (" + other.getId() + ") y = " + other.getY() + " this y = " + getY();
         }
         if (from.getX() == to.getX()) {
-            Location intersection = new Location(from.getX(), getY(), below.from.getZ());
+            Location intersection = new Location(from.getX(), getY(), other.from.getZ());
+            raised.add(intersection.shifted(new Vector(0, 0, -1)));
+            raised.add(intersection.shifted(new Vector(0, 0, 0)));
+            raised.add(intersection.shifted(new Vector(0, 0, 1)));
+            slabs.add(intersection.shifted(new Vector(0, 0, -2)));
+            slabs.add(intersection.shifted(new Vector(0, 0, 2)));
             repeaters.add(intersection);
-            below.holes.add(intersection.above(-1));
-            below.repeaters.add(intersection.shifted(new Vector(Integer.compare(below.to.getX(), intersection.getX()), -1, 0)));
+            other.holes.add(intersection);
+            other.repeaters.add(intersection.shifted(new Vector(Integer.compare(other.to.getX(), intersection.getX()), 0, 0)));
         } else {
-            Location intersection = new Location(below.from.getX(), getY(), from.getZ());
+            Location intersection = new Location(other.from.getX(), getY(), from.getZ());
+            raised.add(intersection.shifted(new Vector(-1, 0, 0)));
+            raised.add(intersection.shifted(new Vector(0, 0, 0)));
+            raised.add(intersection.shifted(new Vector(1, 0, 0)));
+            slabs.add(intersection.shifted(new Vector(-2, 0, 0)));
+            slabs.add(intersection.shifted(new Vector(2, 0, 0)));
             repeaters.add(intersection);
-            below.holes.add(intersection.above(-1));
-            below.repeaters.add(intersection.shifted(new Vector(0, -1, Integer.compare(below.to.getZ(), intersection.getZ()))));
+            other.holes.add(intersection);
+            other.repeaters.add(intersection.shifted(new Vector(0, 0, Integer.compare(other.to.getZ(), intersection.getZ()))));
         }
     }
 

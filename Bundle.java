@@ -5,7 +5,7 @@ class Bundle implements Renderer {
     private List<Wire> wires;
     private String id;
 
-    String deferredMessages = "";
+    private String deferredMessages = "";
 
     // From and to are for the bottom wire.
     Bundle(Location from, Location to, int numWires, String id) {
@@ -26,12 +26,12 @@ class Bundle implements Renderer {
         }
     }
 
-    void intersectWithBundleBelow(Bundle below) {
+    void intersectWith(Bundle below) {
         if (wires.size() != below.wires.size()) {
             deferredMessages += " this " + id + " has " + wires.size() + " wires and " + below.id + " has " + below.wires.size();
         }
         for (int i = 0; i < wires.size(); ++i) {
-            wires.get(i).intersectWithWireBelow(below.wires.get(i));
+            wires.get(i).intersectWith(below.wires.get(i));
         }
     }
 }
