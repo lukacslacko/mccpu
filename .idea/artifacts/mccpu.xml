@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="mccpu">
+    <output-path>$PROJECT_DIR$/out</output-path>
+    <root id="archive" name="mccpu.jar">
+      <element id="module-output" name="mccpu" />
+    </root>
+  </artifact>
+</component>
