@@ -25,11 +25,9 @@ public class MCCPU extends JavaPlugin {
                     playerLocation.shifted(new Vector(13, 2, 23)),
                     "wire_below"
             );
-            List<Wire> wires_below = wire_above.intersectWithWireBelow(wire_below);
+            wire_above.intersectWithWireBelow(wire_below);
             wire_above.render(target);
-            for (Wire wire : wires_below) {
-                wire.render(target);
-            }
+            wire_below.render(target);
         }
         return true;
     }
