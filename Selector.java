@@ -17,8 +17,6 @@ public class Selector implements Renderer {
 
     private Material material;
 
-    private int ladderHeight = 0;
-
     Selector(Location bottom, Vector wireDirection, Vector sideDirection, int numWires, int pattern, Material material) {
         this.bottom = bottom;
         wire = wireDirection;
@@ -26,10 +24,6 @@ public class Selector implements Renderer {
         this.numWires = numWires;
         this.pattern = pattern;
         this.material = material;
-    }
-
-    void setLadderHeight(int ladderHeight) {
-        this.ladderHeight = ladderHeight;
     }
 
     @Override
@@ -51,8 +45,5 @@ public class Selector implements Renderer {
             location = location.shifted(wire.times(2)).above(2);
         }
         target.setWallTorch(bottom.above(1).shifted(wire.times(2)).shifted(side.times(3)), Utils.facing(side.times(-1)));
-        if (ladderHeight > 0) {
-            new Ladder(bottom.shifted(wire.times(2)).shifted(side.times(4)), wire, ladderHeight, material).render(target);
-        }
     }
 }
