@@ -17,19 +17,27 @@ public class MCCPU extends JavaPlugin {
             Location playerLocation =
                     new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
             Bundle bundle1 = new Bundle(
-                    playerLocation.shifted(new Vector(3, 3, 13)),
-                    playerLocation.shifted(new Vector(23, 3, 13)),
-                    8,
+                    playerLocation.shifted(new Vector(5, 0, 10)),
+                    playerLocation.shifted(new Vector(15, 0, 10)),
+                    3,
                     "bundle1");
-            Bundle bundle2 = new Bundle(
-                    playerLocation.shifted(new Vector(13, 3, 3)),
-                    playerLocation.shifted(new Vector(13, 3, 23)),
-                    8,
+            Bundle bundle2a = new Bundle(
+                    playerLocation.shifted(new Vector(9, 0, 5)),
+                    playerLocation.shifted(new Vector(9, 0, 15)),
+                    3,
                     "wire2"
             );
-            bundle1.intersectWith(bundle2);
+            Bundle bundle2b = new Bundle(
+                    playerLocation.shifted(new Vector(11, 0, 15)),
+                    playerLocation.shifted(new Vector(11, 0, 5)),
+                    3,
+                    "wire2"
+            );
+            bundle1.intersectWith(bundle2a);
+            bundle1.intersectWith(bundle2b);
             bundle1.render(target);
-            bundle2.render(target);
+            bundle2a.render(target);
+            bundle2b.render(target);
         }
         return true;
     }
