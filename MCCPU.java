@@ -20,6 +20,7 @@ public class MCCPU extends JavaPlugin {
             Vector wire = new Vector(1, 0, 0);
             Bundle bundle = new Bundle(start, start.shifted(wire.times(10)), 4, "bundle", Wire.BLUE);
             Selector selector = new Selector(start.shifted(wire.times(2)), wire, new Vector(0, 0, 1), 4, 5, Wire.BLUE);
+            selector.setLadderHeight(8);
             bundle.render(target);
             selector.render(target);
         }
