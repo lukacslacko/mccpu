@@ -3,6 +3,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.RedstoneWallTorch;
 import org.bukkit.block.data.type.Repeater;
 import org.bukkit.block.data.type.Slab;
 
@@ -44,5 +45,15 @@ public class MCRenderTarget implements RenderTarget {
         Slab slab = (Slab) block.getBlockData();
         slab.setType(Slab.Type.TOP);
         block.setBlockData(slab);
+    }
+
+    @Override
+    public void setWallTorch(Location location, BlockFace facing) {
+        Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
+        block.setType(Material.REDSTONE_WALL_TORCH);
+        RedstoneWallTorch torch = (RedstoneWallTorch) block.getBlockData();
+        torch.setFacing(facing);
+        block.setBlockData(torch);
+
     }
 }

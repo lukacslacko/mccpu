@@ -7,4 +7,5 @@ interface RenderTarget {
     void setWire(Location location);
     void setRepeater(Location location, BlockFace facing);
     void setTopSlab(Location location);
+    void setWallTorch(Location location, BlockFace facing);
 }

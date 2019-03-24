@@ -7,4 +7,8 @@ class Utils {
         if (dx > 0) return BlockFace.WEST;
         return BlockFace.EAST;
     }
+
+    static BlockFace facing(Vector v) {
+        return facingXZ(v.getDx(), v.getDz());
+    }
 }

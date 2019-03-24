@@ -10,4 +10,8 @@ class Vector {
     int getDx() { return dx; }
     int getDy() { return dy; }
     int getDz() { return dz; }
+
+    Vector times(int n) {
+        return new Vector(n*dx, n*dy, n*dz);
+    }
 }

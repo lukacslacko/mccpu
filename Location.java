@@ -20,6 +20,12 @@ class Location {
         this.z = z;
     }
 
+    Location(Location location) {
+        x = location.x;
+        y = location.y;
+        z = location.z;
+    }
+
     int getX() { return x; }
     int getY() { return y; }
     int getZ() { return z; }
