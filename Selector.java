@@ -52,7 +52,7 @@ public class Selector implements Renderer {
         }
         target.setWallTorch(bottom.above(1).shifted(wire.times(2)).shifted(side.times(3)), Utils.facing(side.times(-1)));
         if (ladderHeight > 0) {
-            new Ladder(bottom.shifted(wire.times(2)).shifted(side.times(4)), wire, ladderHeight, material);
+            new Ladder(bottom.shifted(wire.times(2)).shifted(side.times(4)), wire, ladderHeight, material).render(target);
         }
     }
 }
