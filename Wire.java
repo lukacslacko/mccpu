@@ -56,7 +56,9 @@ class Wire implements Renderer {
             if (raised.contains(location)) {
                 put = location.above(1);
             }
-            if (slabs.contains(location)) {
+            // When crossing over two wires with one block gap, intermediate slabs block transferring the signal in
+            // the crossed wire.
+            if (slabs.contains(location) && !raised.contains(location)) {
                 target.setTopSlab(put);
             } else {
                 target.setBlock(put);
