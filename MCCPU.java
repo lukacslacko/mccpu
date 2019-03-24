@@ -16,28 +16,23 @@ public class MCCPU extends JavaPlugin {
             MCRenderTarget target = new MCRenderTarget(player.getWorld());
             Location playerLocation =
                     new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
-            Bundle bundle1 = new Bundle(
-                    playerLocation.shifted(new Vector(5, 0, 10)),
-                    playerLocation.shifted(new Vector(15, 0, 10)),
-                    3,
-                    "bundle1");
-            Bundle bundle2a = new Bundle(
+            Bidir bidir1 = new Bidir(
+                    playerLocation.shifted(new Vector(5, 0, 9)),
+                    playerLocation.shifted(new Vector(15, 0, 9)),
+                    new Vector(0, 0, 2),
+                    4,
+                    "bidir1",
+                    Wire.BLUE);
+            Bidir bidir2 = new Bidir(
                     playerLocation.shifted(new Vector(9, 0, 5)),
                     playerLocation.shifted(new Vector(9, 0, 15)),
-                    3,
-                    "wire2"
-            );
-            Bundle bundle2b = new Bundle(
-                    playerLocation.shifted(new Vector(11, 0, 15)),
-                    playerLocation.shifted(new Vector(11, 0, 5)),
-                    3,
-                    "wire2"
-            );
-            bundle1.intersectWith(bundle2a);
-            bundle1.intersectWith(bundle2b);
-            bundle1.render(target);
-            bundle2a.render(target);
-            bundle2b.render(target);
+                    new Vector(2, 0, 0),
+                    4,
+                    "bidir2",
+                    Wire.LIGHT_GREEN);
+            bidir1.intersectWith(bidir2);
+            bidir1.render(target);
+            bidir2.render(target);
         }
         return true;
     }

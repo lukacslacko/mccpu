@@ -1,3 +1,5 @@
+import org.bukkit.Material;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,8 +7,15 @@ import static java.lang.Math.abs;
 import static java.lang.Math.max;
 
 class Wire implements Renderer {
+    static final Material BLUE = Material.BLUE_WOOL;
+    static final Material YELLOW = Material.YELLOW_WOOL;
+    static final Material PINK = Material.PINK_WOOL;
+    static final Material LIGHT_BLUE = Material.LIGHT_BLUE_WOOL;
+    static final Material LIGHT_GREEN = Material.GREEN_WOOL;
+
     private Location from, to;
     private String id;
+    private Material material;
 
     private String deferredMessage = "";
 
@@ -23,10 +32,11 @@ class Wire implements Renderer {
     private List<Location> raised = new ArrayList<>();
 
     // Wire connecting from and to, inclusive both.
-    Wire(Location from, Location to, String id) {
+    Wire(Location from, Location to, String id, Material material) {
         this.from = from;
         this.to = to;
         this.id = id;
+        this.material = material;
     }
 
     @Override
@@ -61,7 +71,7 @@ class Wire implements Renderer {
             if (slabs.contains(location) && !raised.contains(location)) {
                 target.setTopSlab(put);
             } else {
-                target.setBlock(put);
+                target.setBlock(put, material);
             }
             if (repeaters.contains(location)) {
                 strength = 0;

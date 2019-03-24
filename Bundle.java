@@ -1,3 +1,5 @@
+import org.bukkit.Material;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,11 +10,11 @@ class Bundle implements Renderer {
     private String deferredMessages = "";
 
     // From and to are for the bottom wire.
-    Bundle(Location from, Location to, int numWires, String id) {
+    Bundle(Location from, Location to, int numWires, String id, Material material) {
         this.id = id;
         wires = new ArrayList<>();
         for (int i = 0; i < numWires; ++i) {
-            wires.add(new Wire(from.above(2*i), to.above(2*i), id + "_" + i));
+            wires.add(new Wire(from.above(2*i), to.above(2*i), id + "_" + i, material));
         }
     }
 

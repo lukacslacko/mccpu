@@ -19,8 +19,8 @@ public class MCRenderTarget implements RenderTarget {
     }
 
     @Override
-    public void setBlock(Location location) {
-        world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(Material.BLUE_WOOL);
+    public void setBlock(Location location, Material material) {
+        world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(material);
     }
 
     @Override
