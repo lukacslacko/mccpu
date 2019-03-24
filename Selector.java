@@ -33,7 +33,7 @@ public class Selector implements Renderer {
             target.setBlock(location.shifted(side), material);
 
             if ((pattern & (1 << i)) == 0) {
-                target.setWallTorch(location.shifted(side).above(1), Utils.facing(side));
+                target.setWallTorch(location.shifted(side).above(1), Utils.facing(side.times(-1)));
             } else {
                 target.setRepeater(location.shifted(side).above(1), Utils.facing(side));
             }
