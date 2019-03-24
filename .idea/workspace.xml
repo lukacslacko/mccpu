@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Selector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Location.java" afterPath="$PROJECT_DIR$/Location.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCCPU.java" afterPath="$PROJECT_DIR$/MCCPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCRenderTarget.java" afterPath="$PROJECT_DIR$/MCRenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RenderTarget.java" afterPath="$PROJECT_DIR$/RenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils.java" afterPath="$PROJECT_DIR$/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Vector.java" afterPath="$PROJECT_DIR$/Vector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Selector.java" afterPath="$PROJECT_DIR$/Selector.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MCCPU.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MCCPU.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MCCPU.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="272">
+              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Selector.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Selector.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Selector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="71" lean-forward="true" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+            <state relative-caret-position="561">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,8 +174,8 @@
         <option value="$PROJECT_DIR$/RenderTarget.java" />
         <option value="$PROJECT_DIR$/MCRenderTarget.java" />
         <option value="$PROJECT_DIR$/Utils.java" />
-        <option value="$PROJECT_DIR$/Selector.java" />
         <option value="$PROJECT_DIR$/MCCPU.java" />
+        <option value="$PROJECT_DIR$/Selector.java" />
       </list>
     </option>
   </component>
@@ -561,21 +554,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Selector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="71" lean-forward="true" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCCPU.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="272">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Selector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
