@@ -27,7 +27,7 @@ public class MCCPU extends JavaPlugin {
                     playerLocation.shifted(new Vector(9, 0, 5)),
                     playerLocation.shifted(new Vector(9, 0, 15)),
                     new Vector(2, 0, 0),
-                    4,
+                    2,
                     "bidir2",
                     Wire.LIGHT_GREEN);
             bidir1.intersectWith(bidir2);

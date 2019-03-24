@@ -28,12 +28,13 @@ class Bundle implements Renderer {
         }
     }
 
-    void intersectWith(Bundle below) {
-        if (wires.size() != below.wires.size()) {
-            deferredMessages += " this " + id + " has " + wires.size() + " wires and " + below.id + " has " + below.wires.size();
-        }
-        for (int i = 0; i < wires.size(); ++i) {
-            wires.get(i).intersectWith(below.wires.get(i));
+    void intersectWith(Bundle other) {
+        for (Wire wire : wires) {
+            for (Wire other_wire : other.wires) {
+                if (wire.getY() == other_wire.getY()) {
+                    wire.intersectWith(other_wire);
+                }
+            }
         }
     }
 }
