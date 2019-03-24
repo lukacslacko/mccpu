@@ -30,7 +30,7 @@ public class MCCPU extends JavaPlugin {
                     2,
                     "bidir2",
                     Wire.LIGHT_GREEN);
-            bidir1.intersectWith(bidir2);
+            bidir2.intersectWith(bidir1);
             bidir1.render(target);
             bidir2.render(target);
         }
