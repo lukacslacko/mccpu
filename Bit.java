@@ -23,6 +23,13 @@ public class Bit implements Renderer {
         target.setBlock(loc(1, 0, 0), material);
         target.setRepeater(loc(1, 0, 1), Utils.facing(width));
         target.setBlock(loc(2, 0, 0), material);
-        // TODO finish
+        target.setWire(loc(2, 0, 1));
+        target.setBlock(loc(0, 1, 0), material);
+        target.setRepeater(loc(0, 1, 1), Utils.facing(length));
+        target.setBlock(loc(0, 2, 0), material);
+        target.setWire(loc(0,2,1));
+        target.setBlock(loc(0, 3, 0), material);
+        target.setWire(loc(0,3,1));
+        target.setStickyPiston(loc(0, 4, 1), Utils.facing(length.times(-1)));
     }
 }

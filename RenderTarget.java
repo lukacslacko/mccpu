@@ -8,4 +8,5 @@ interface RenderTarget {
     void setRepeater(Location location, BlockFace facing);
     void setTopSlab(Location location);
     void setWallTorch(Location location, BlockFace facing);
+    void setStickyPiston(Location location, BlockFace facing);
 }

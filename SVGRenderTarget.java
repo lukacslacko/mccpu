@@ -1,9 +1,11 @@
+import org.apache.logging.log4j.util.TriConsumer;
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.Function;
 
 public class SVGRenderTarget implements RenderTarget {
     private Map<Location, String> layers = new TreeMap<>(new Comparator<Location>() {
@@ -24,12 +26,14 @@ public class SVGRenderTarget implements RenderTarget {
 
     private int gridSize = 30;
     private int layerSize = 10;
+    private int blockStrokeWidth = 1;
 
     SVGRenderTarget() {}
 
-    SVGRenderTarget(int gridSize, int layerSize) {
+    SVGRenderTarget(int gridSize, int layerSize, int blockStrokeWidth) {
         this.gridSize = gridSize;
         this.layerSize = layerSize;
+        this.blockStrokeWidth = blockStrokeWidth;
     }
 
     String getSVG() {
@@ -58,19 +62,19 @@ public class SVGRenderTarget implements RenderTarget {
         maxY = Math.max(maxY, projY(location) + 2 * gridSize);
     }
 
-    private String polygon(int[][] points, String color) {
+    private String polygon(float[][] points, String color) {
         String poly = "<polygon points=\"";
         boolean first = true;
-        for (int[] point : points) {
+        for (float[] point : points) {
             poly += (first ? "" : " ") + point[0] + "," + point[1];
             first = false;
         }
-        poly += "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\"/>";
+        poly += "\" style=\"fill:" + color + ";stroke:black;stroke-width:" + blockStrokeWidth + "\"/>";
         return poly;
     }
 
     private String circle(int cx, int cy, int r, String color) {
-        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" style=\"fill:" + color + ";stroke:black;stroke-width:1\"/>";
+        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" style=\"fill:" + color + ";stroke:black;stroke-width:" + blockStrokeWidth + "\"/>";
     }
 
     private String line(int x1, int y1, int x2, int y2, String color) {
@@ -82,10 +86,32 @@ public class SVGRenderTarget implements RenderTarget {
             case BLUE_WOOL: return "blue";
             case YELLOW_WOOL: return "yellow";
             case PINK_WOOL: return "pink";
-            case LIGHT_BLUE_WOOL: return "light_blue";
+            case LIGHT_BLUE_WOOL: return "lightblue";
             case LIME_WOOL: return "lime";
-            default: return "light_gray";
+            default: return "gray";
         }
+    }
+
+    @FunctionalInterface
+    interface Converter {
+        float[] apply(float a, float b, float c);
+    }
+
+    private String cuboid(Location location, float x1, float y1, float z1, float x2, float y2, float z2, String color) {
+        String cube = "";
+        int x = projX(location) + layerSize;
+        int y = projY(location) + layerSize;
+        Converter p = (a, b, c) -> new float[] {x + a*gridSize - b*layerSize, y + c*gridSize -b*layerSize};
+        cube += polygon(
+                new float[][] {p.apply(x1, y1, z1), p.apply(x2, y1, z1), p.apply(x2, y1, z2), p.apply(x1, y1, z2)},
+                color);
+        cube += polygon(
+                new float[][] {p.apply(x2, y1, z1), p.apply(x2, y1, z2), p.apply(x2, y2, z2), p.apply(x2, y2, z1)},
+                color);
+        cube += polygon(
+                new float[][] {p.apply(x1, y1, z2), p.apply(x1, y2, z2), p.apply(x2, y2, z2), p.apply(x2, y1, z2)},
+                color);
+        return cube;
     }
 
     @Override
@@ -95,20 +121,7 @@ public class SVGRenderTarget implements RenderTarget {
 
     @Override
     public void setBlock(Location location, Material material) {
-        String cube = "";
-        int x = projX(location);
-        int y = projY(location);
-        String color = color(material);
-        cube += polygon(
-                new int[][] {{x, y}, {x + gridSize, y}, {x + gridSize, y + gridSize}, {x, y + gridSize}},
-                color);
-        cube += polygon(
-                new int[][] {{x + gridSize, y}, {x + gridSize, y + gridSize}, {x + gridSize + layerSize, y + gridSize + layerSize}, {x + gridSize + layerSize, y + layerSize}},
-                color);
-        cube += polygon(
-                new int[][] {{x, y + gridSize}, {x + gridSize, y + gridSize}, {x + gridSize + layerSize, y + gridSize + layerSize}, {x + layerSize, y + gridSize + layerSize}},
-                color);
-        add(location, cube);
+        add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 1f, color(material)));
     }
 
     @Override
@@ -124,27 +137,14 @@ public class SVGRenderTarget implements RenderTarget {
         int y = projY(location) + layerSize + gridSize /2;
         int dx = (facing == BlockFace.EAST) ? -gridSize /2 : ((facing == BlockFace.WEST) ? gridSize /2 : 0);
         int dy = (facing == BlockFace.NORTH) ? gridSize /2 : ((facing == BlockFace.SOUTH) ? -gridSize /2 : 0);
-        add(location, line(x+dx,y+dy,x-dx,y-dy, "red"));
-        add(location, line(x+dx,y+dy,x-dy,y+dx, "red"));
-        add(location, line(x+dx,y+dy,x+dy,y-dx, "red"));
+        add(location, line(x+dx,y+dy,x-dx,y-dy, "white"));
+        add(location, line(x+dx,y+dy,x-dy,y+dx, "white"));
+        add(location, line(x+dx,y+dy,x+dy,y-dx, "white"));
     }
 
     @Override
     public void setTopSlab(Location location) {
-        String cube = "";
-        int x = projX(location);
-        int y = projY(location);
-        String color = "white";
-        cube += polygon(
-                new int[][] {{x, y}, {x + gridSize, y}, {x + gridSize, y + gridSize}, {x, y + gridSize}},
-                color);
-        cube += polygon(
-                new int[][] {{x + gridSize, y}, {x + gridSize, y + gridSize}, {x + gridSize + layerSize /2, y + gridSize + layerSize /2}, {x + gridSize + layerSize /2, y + layerSize /2}},
-                color);
-        cube += polygon(
-                new int[][] {{x, y + gridSize}, {x + gridSize, y + gridSize}, {x + gridSize + layerSize /2, y + gridSize + layerSize /2}, {x + layerSize /2, y + gridSize + layerSize /2}},
-                color);
-        add(location, cube);
+        add(location, cuboid(location, 0f, 1f, 0f, 1f, 0.5f, 1f, "white"));
     }
 
     @Override
@@ -153,6 +153,16 @@ public class SVGRenderTarget implements RenderTarget {
         int y = projY(location) + gridSize /2 + layerSize /2;
         int dx = (facing == BlockFace.EAST) ? -gridSize /2 : ((facing == BlockFace.WEST) ? gridSize /2 : 0);
         int dy = (facing == BlockFace.NORTH) ? gridSize /2 : ((facing == BlockFace.SOUTH) ? -gridSize /2 : 0);
-        add(location, line(x, y, x+dx, y+dy, "red"));
+        add(location, line(x, y, x+dx, y+dy, "yellow"));
+    }
+
+    @Override
+    public void setStickyPiston(Location location, BlockFace facing) {
+        String piston = "";
+        if (facing == BlockFace.NORTH) {
+            add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.25f, "lime"));
+            add(location, cuboid(location, 0f, 1f, 0.25f, 1f, 0f, 1f, "gray"));
+        }
+        add(location, piston);
     }
 }

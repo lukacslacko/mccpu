@@ -6,7 +6,8 @@ import java.io.PrintWriter;
 
 public class Main {
     public static void main(String[] args) {
-        SVGRenderTarget svg = new SVGRenderTarget(30, 4);
+//        SVGRenderTarget svg = new SVGRenderTarget(30, 18, 1);
+        SVGRenderTarget svg = new SVGRenderTarget(12, 0, 0);
         new CPU(new Location(0, 0, 0)).render(svg);
         try {
             FileUtils.writeStringToFile(new File("main.svg"), svg.getSVG(), "utf-8");

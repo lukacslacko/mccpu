@@ -3,6 +3,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.Piston;
 import org.bukkit.block.data.type.RedstoneWallTorch;
 import org.bukkit.block.data.type.Repeater;
 import org.bukkit.block.data.type.Slab;
@@ -55,5 +56,14 @@ public class MCRenderTarget implements RenderTarget {
         torch.setFacing(facing);
         block.setBlockData(torch);
 
+    }
+
+    @Override
+    public void setStickyPiston(Location location, BlockFace facing) {
+        Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
+        block.setType(Material.STICKY_PISTON);
+        Piston piston = (Piston) block.getBlockData();
+        piston.setFacing(facing);
+        block.setBlockData(piston);
     }
 }
