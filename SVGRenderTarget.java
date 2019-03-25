@@ -96,6 +96,8 @@ public class SVGRenderTarget extends RenderTarget {
             case RED_WOOL: return "red";
             case GREEN_WOOL: return "green";
             case ORANGE_WOOL: return "orange";
+            case PURPLE_WOOL: return "purple";
+            case BROWN_WOOL: return "brown";
             default: return "gray";
         }
     }

@@ -44,6 +44,6 @@ public class Selector implements Renderer {
             target.setWire(location.shifted(side.times(2)).shifted(wire).above(2));
             location = location.shifted(wire.times(2)).above(2);
         }
-        target.setWallTorch(bottom.above(1).shifted(wire.times(2)).shifted(side.times(3)), Utils.facing(side.times(-1)));
+        target.setWallTorch(bottom.above(-1).shifted(side.times(3)), Utils.facing(side.times(-1)));
     }
 }

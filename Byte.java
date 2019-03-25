@@ -3,12 +3,29 @@ import org.bukkit.Material;
 public class Byte implements Renderer {
     private Location origin;
     private Vector width, length;
-    private Material material, outMaterial, inMaterial, writeMaterial, readMaterial, resetMaterial ,readyMaterial;
+    private Material material, outMaterial, inMaterial, writeMaterial, readMaterial, resetMaterial ,readyMaterial, readSelectorMaterial, writeSelectorMaterial;
+    private int numAddressWires, address;
 
-    Byte(Location origin, Vector width, Vector length, Material material, Material outMaterial, Material inMaterial, Material writeMaterial, Material readMaterial, Material resetMaterial, Material readyMaterial) {
+    Byte(
+            Location origin,
+            Vector width,
+            Vector length,
+            int numAddressWires,
+            int address,
+            Material material,
+            Material outMaterial,
+            Material inMaterial,
+            Material writeMaterial,
+            Material readMaterial,
+            Material resetMaterial,
+            Material readyMaterial,
+            Material readSelectorMaterial,
+            Material writeSelectorMaterial) {
         this.origin = origin;
         this.width = width;
         this.length = length;
+        this.numAddressWires = numAddressWires;
+        this.address = address;
         this.material = material;
         this.outMaterial = outMaterial;
         this.inMaterial = inMaterial;
@@ -16,6 +33,8 @@ public class Byte implements Renderer {
         this.readMaterial = readMaterial;
         this.resetMaterial = resetMaterial;
         this.readyMaterial = readyMaterial;
+        this.readSelectorMaterial = readSelectorMaterial;
+        this.writeSelectorMaterial = writeSelectorMaterial;
     }
 
     private Location loc(int w, int l, int above) {
@@ -79,5 +98,17 @@ public class Byte implements Renderer {
 
         Bundle readyBundle = new Bundle(loc(5, lengthEnd, -2), loc(5, lengthStart, -2), 1, "rdy", readyMaterial);
         readyBundle.render(target);
+
+        Selector readSelector = new Selector(
+                loc(-9, lengthStart, 0), length, width, numAddressWires, address, readSelectorMaterial);
+        readSelector.render(target);
+        Bundle readAddress = new Bundle(loc(-9, lengthStart, 0), loc(-9, lengthEnd, 0), numAddressWires, "raddr", readSelectorMaterial);
+        readAddress.render(target);
+
+        Selector writeSelector = new Selector(
+                loc(15, lengthStart, 0), length, width.times(-1), numAddressWires, address, writeSelectorMaterial);
+        writeSelector.render(target);
+        Bundle writeAddress = new Bundle(loc(15, lengthStart, 0), loc(15, lengthEnd, 0), numAddressWires, "waddr", writeSelectorMaterial);
+        writeAddress.render(target);
     }
 }

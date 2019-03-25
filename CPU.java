@@ -21,6 +21,20 @@ public class CPU implements Renderer {
         b1.render(target);
         b2.render(target);
         */
-        new Byte(start, new Vector(1, 0, 0), new Vector(0, 0, -1), Wire.LIGHT_BLUE, Wire.LIGHT_GREEN, Wire.YELLOW, Wire.RED, Wire.GREEN, Wire.PINK, Wire.ORANGE).render(target);
+        new Byte(
+                start,
+                new Vector(1, 0, 0),
+                new Vector(0, 0, 1),
+                4,
+                0,
+                Wire.LIGHT_BLUE,
+                Wire.LIGHT_GREEN,
+                Wire.YELLOW,
+                Wire.RED,
+                Wire.GREEN,
+                Wire.PINK,
+                Wire.ORANGE,
+                Wire.PURPLE,
+                Wire.BROWN).render(target);
     }
 }
