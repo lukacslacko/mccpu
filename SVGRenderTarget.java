@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Function;
 
-public class SVGRenderTarget implements RenderTarget {
+public class SVGRenderTarget extends RenderTarget {
     private Map<Location, String> layers = new TreeMap<>(new Comparator<Location>() {
         @Override
         public int compare(Location o1, Location o2) {
@@ -153,16 +153,18 @@ public class SVGRenderTarget implements RenderTarget {
         int y = projY(location) + gridSize /2 + layerSize /2;
         int dx = (facing == BlockFace.EAST) ? -gridSize /2 : ((facing == BlockFace.WEST) ? gridSize /2 : 0);
         int dy = (facing == BlockFace.NORTH) ? gridSize /2 : ((facing == BlockFace.SOUTH) ? -gridSize /2 : 0);
-        add(location, line(x, y, x+dx, y+dy, "yellow"));
+        add(location, line(x, y, x+dx, y+dy, "red"));
     }
 
     @Override
     public void setStickyPiston(Location location, BlockFace facing) {
-        String piston = "";
         if (facing == BlockFace.NORTH) {
             add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.25f, "lime"));
             add(location, cuboid(location, 0f, 1f, 0.25f, 1f, 0f, 1f, "gray"));
         }
-        add(location, piston);
+        if (facing == BlockFace.SOUTH) {
+            add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.75f, "gray"));
+            add(location, cuboid(location, 0f, 1f, 0.75f, 1f, 0f, 1f, "lime"));
+        }
     }
 }

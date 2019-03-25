@@ -8,7 +8,7 @@ import org.bukkit.block.data.type.RedstoneWallTorch;
 import org.bukkit.block.data.type.Repeater;
 import org.bukkit.block.data.type.Slab;
 
-public class MCRenderTarget implements RenderTarget {
+public class MCRenderTarget extends RenderTarget {
     private World world;
 
     MCRenderTarget(World world) {
@@ -16,14 +16,13 @@ public class MCRenderTarget implements RenderTarget {
     }
 
     @Override
-    public void message(String msg) {
+    void message(String msg) {
         Bukkit.broadcastMessage(msg);
     }
 
     @Override
     public void setBlock(Location location, Material material) {
         world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(material);
-        Bukkit.broadcastMessage("Adding block " + material + " at " + location);
     }
 
     @Override

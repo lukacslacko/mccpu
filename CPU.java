@@ -7,7 +7,8 @@ public class CPU implements Renderer {
 
     @Override
     public void render(RenderTarget target) {
-/*        for (int i = 0; i < 16; ++i) {
+        /*
+        for (int i = 0; i < 16; ++i) {
             Vector wire = new Vector(1, 0, 0);
             Bundle bundle = new Bundle(start.shifted(wire.times(10*i)), start.shifted(wire.times(10*(i+1)-1)), 4, "bundle", Wire.BLUE);
             Selector selector = new Selector(start.shifted(wire.times(10*i+2)), wire, new Vector(0, 0, 1), 4, i, Wire.BLUE);
@@ -19,6 +20,7 @@ public class CPU implements Renderer {
         b2.intersectWith(b1);
         b1.render(target);
         b2.render(target);
-*/        new Bit(start, new Vector(1, 0, 0), new Vector(0, 0, -1), Wire.LIGHT_BLUE).render(target);
+        */
+        new Bit(start, new Vector(1, 0, 0), new Vector(0, 0, 1), Wire.LIGHT_BLUE).render(target);
     }
 }

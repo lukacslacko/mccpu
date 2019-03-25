@@ -1,12 +1,22 @@
 import org.bukkit.Material;
 import org.bukkit.block.BlockFace;
 
-interface RenderTarget {
-    void message(String msg);
-    void setBlock(Location location, Material material);
-    void setWire(Location location);
-    void setRepeater(Location location, BlockFace facing);
-    void setTopSlab(Location location);
-    void setWallTorch(Location location, BlockFace facing);
-    void setStickyPiston(Location location, BlockFace facing);
+abstract class RenderTarget {
+    abstract void message(String msg);
+    abstract void setBlock(Location location, Material material);
+    abstract void setWire(Location location);
+    abstract void setRepeater(Location location, BlockFace facing);
+    abstract void setTopSlab(Location location);
+    abstract void setWallTorch(Location location, BlockFace facing);
+    abstract void setStickyPiston(Location location, BlockFace facing);
+
+    void setWireBlock(Location location, Material material) {
+        setBlock(location, material);
+        setWire(location.above(1));
+    }
+
+    void setRepeaterBlock(Location location, Material material, BlockFace facing) {
+        setBlock(location, material);
+        setRepeater(location.above(1), facing);
+    }
 }
