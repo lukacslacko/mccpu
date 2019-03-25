@@ -12,6 +12,9 @@ class Wire implements Renderer {
     static final Material PINK = Material.PINK_WOOL;
     static final Material LIGHT_BLUE = Material.LIGHT_BLUE_WOOL;
     static final Material LIGHT_GREEN = Material.LIME_WOOL;
+    static final Material GREEN = Material.GREEN_WOOL;
+    static final Material RED = Material.RED_WOOL;
+    static final Material ORANGE = Material.ORANGE_WOOL;
 
     private Location from, to;
     private String id;
