@@ -10,10 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bit.java" afterPath="$PROJECT_DIR$/Bit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPU.java" afterPath="$PROJECT_DIR$/CPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCRenderTarget.java" afterPath="$PROJECT_DIR$/MCRenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RenderTarget.java" afterPath="$PROJECT_DIR$/RenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVGRenderTarget.java" afterPath="$PROJECT_DIR$/SVGRenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/Main.java" afterPath="$PROJECT_DIR$/main/Main.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CPU.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CPU.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CPU.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
+              <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding>
                 <element signature="e#99#100#0" expanded="true" />
                 <element signature="e#133#134#0" expanded="true" />
@@ -62,8 +58,8 @@
       <file leaf-file-name="Bit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
+            <state relative-caret-position="561">
+              <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -123,7 +119,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -180,12 +176,12 @@
         <option value="$PROJECT_DIR$/MCCPU.java" />
         <option value="$PROJECT_DIR$/main.svg" />
         <option value="$PROJECT_DIR$/Selector.java" />
-        <option value="$PROJECT_DIR$/CPU.java" />
         <option value="$PROJECT_DIR$/RenderTarget.java" />
         <option value="$PROJECT_DIR$/MCRenderTarget.java" />
-        <option value="$PROJECT_DIR$/Bit.java" />
         <option value="$PROJECT_DIR$/SVGRenderTarget.java" />
         <option value="$PROJECT_DIR$/main/Main.java" />
+        <option value="$PROJECT_DIR$/Bit.java" />
+        <option value="$PROJECT_DIR$/CPU.java" />
       </list>
     </option>
   </component>
@@ -555,32 +551,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCCPU.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Selector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CPU.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="80" />
-          <folding>
-            <element signature="e#99#100#0" expanded="true" />
-            <element signature="e#133#134#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -620,14 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="48" lean-forward="true" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SVGRenderTarget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -652,6 +619,35 @@
           <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCCPU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="42" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="46" lean-forward="false" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CPU.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding>
+            <element signature="e#99#100#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
