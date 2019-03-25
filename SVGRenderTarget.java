@@ -166,5 +166,13 @@ public class SVGRenderTarget extends RenderTarget {
             add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.75f, "gray"));
             add(location, cuboid(location, 0f, 1f, 0.75f, 1f, 0f, 1f, "lime"));
         }
+        if (facing == BlockFace.EAST) {
+            add(location, cuboid(location, 0f, 1f, 0f, 0.75f, 0f, 1f, "gray"));
+            add(location, cuboid(location, 0.75f, 1f, 0f, 1f, 0f, 1f, "lime"));
+        }
+        if (facing == BlockFace.WEST) {
+            add(location, cuboid(location, 0f, 1f, 0f, 0.25f, 0f, 1f, "lime"));
+            add(location, cuboid(location, 0.25f, 1f, 0f, 1f, 0f, 1f, "gray"));
+        }
     }
 }

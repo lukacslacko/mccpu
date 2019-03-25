@@ -33,7 +33,7 @@ public class Bit implements Renderer {
         target.setBlock(loc(2, 2, 1), material);
         target.setWallTorch(loc(2, 3, 1), Utils.facing(length.times(-1)));
         target.setWireBlock(loc(3, 5, 0), material);
-        target.setRepeaterBlock(loc(4, 5, 0), material, Utils.facing(width));
+        target.setWireBlock(loc(4, 5, 0), material);
         target.setWireBlock(loc(5, 0, 0), material);
         target.setWireBlock(loc(5, 1, 0), material);
         target.setWireBlock(loc(5, 2, 0), material);
