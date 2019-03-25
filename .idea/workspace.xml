@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Byte.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bit.java" afterPath="$PROJECT_DIR$/Bit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPU.java" afterPath="$PROJECT_DIR$/CPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVGRenderTarget.java" afterPath="$PROJECT_DIR$/SVGRenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.svg" afterPath="$PROJECT_DIR$/main.svg" />
-    </list>
+    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
