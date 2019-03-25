@@ -32,7 +32,7 @@ public class Selector implements Renderer {
         for (int i = 0; i < numWires; ++i) {
             target.setBlock(location.shifted(side), material);
 
-            if ((pattern & (1 << i)) == 0) {
+            if ((pattern & (1 << i)) != 0) {
                 target.setWallTorch(location.shifted(side).above(1), Utils.facing(side.times(-1)));
             } else {
                 target.setRepeater(location.shifted(side).above(1), Utils.facing(side));

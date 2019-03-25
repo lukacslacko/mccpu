@@ -21,20 +21,24 @@ public class CPU implements Renderer {
         b1.render(target);
         b2.render(target);
         */
-        new Byte(
-                start,
-                new Vector(1, 0, 0),
-                new Vector(0, 0, 1),
-                4,
-                0,
-                Wire.LIGHT_BLUE,
-                Wire.LIGHT_GREEN,
-                Wire.YELLOW,
-                Wire.RED,
-                Wire.GREEN,
-                Wire.PINK,
-                Wire.ORANGE,
-                Wire.PURPLE,
-                Wire.BROWN).render(target);
+        Vector width = new Vector(1, 0, 0);
+        Vector length = new Vector(0, 0, -1);
+        for (int i = 0; i < 16; ++i) {
+            new Byte(
+                    start.shifted(length.times(i * Byte.length())),
+                    width,
+                    length,
+                    4,
+                    i,
+                    Wire.LIGHT_BLUE,
+                    Wire.LIGHT_GREEN,
+                    Wire.YELLOW,
+                    Wire.RED,
+                    Wire.GREEN,
+                    Wire.PINK,
+                    Wire.ORANGE,
+                    Wire.PURPLE,
+                    Wire.BROWN).render(target);
+        }
     }
 }

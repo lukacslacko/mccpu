@@ -42,13 +42,14 @@ public class SVGRenderTarget extends RenderTarget {
     }
 
     String getSVG() {
-        String svg = "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + (maxX - minX) + "px\" height=\"" + (maxY - minY) + "px\">";
-        svg += "<g transform=\"translate(" + (-minX) + "," + (-minY) + ")\">";
+        StringBuilder svg = new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + (maxX - minX) + "px\" height=\"" + (maxY - minY) + "px\">");
+        svg.append("<g transform=\"translate(").append(-minX).append(",").append(-minY).append(")\">");
+        System.out.println(layers.size());
         for (Location location : layers.keySet()) {
-            svg += layers.get(location);
+            svg.append(layers.get(location));
         }
-        svg += "</g></svg>";
-        return svg;
+        svg.append("</g></svg>");
+        return svg.toString();
     }
 
     private int projX(Location location) {
