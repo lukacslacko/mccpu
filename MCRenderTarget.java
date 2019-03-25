@@ -23,6 +23,7 @@ public class MCRenderTarget implements RenderTarget {
     @Override
     public void setBlock(Location location, Material material) {
         world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(material);
+        Bukkit.broadcastMessage("Adding block " + material + " at " + location);
     }
 
     @Override
