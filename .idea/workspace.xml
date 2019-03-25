@@ -6,15 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Byte.java" afterPath="$PROJECT_DIR$/Byte.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CPU.java" afterPath="$PROJECT_DIR$/CPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SVGRenderTarget.java" afterPath="$PROJECT_DIR$/SVGRenderTarget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Wire.java" afterPath="$PROJECT_DIR$/Wire.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.svg" afterPath="$PROJECT_DIR$/main.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/Main.java" afterPath="$PROJECT_DIR$/main/Main.java" />
-    </list>
+    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,8 +120,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -661,8 +653,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
