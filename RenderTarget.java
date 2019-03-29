@@ -8,6 +8,7 @@ abstract class RenderTarget {
     abstract void setRepeater(Location location, BlockFace facing);
     abstract void setTopSlab(Location location);
     abstract void setWallTorch(Location location, BlockFace facing);
+    abstract void setRedstoneTorch(Location location);
     abstract void setStickyPiston(Location location, BlockFace facing);
 
     void setWireBlock(Location location, Material material) {

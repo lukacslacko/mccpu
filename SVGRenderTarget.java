@@ -168,6 +168,14 @@ public class SVGRenderTarget extends RenderTarget {
     }
 
     @Override
+    void setRedstoneTorch(Location location) {
+        int x = projX(location);
+        int y = projY(location);
+        add(location, circle(x + layerSizeX + gridSize / 2, y + layerSizeY + gridSize / 2, gridSize / 3, "yellow"));
+        add(location, circle(x + layerSizeX + gridSize / 2, y + layerSizeY + gridSize / 2, gridSize / 4, "red"));
+    }
+
+    @Override
     public void setStickyPiston(Location location, BlockFace facing) {
         if (facing == BlockFace.NORTH) {
             add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.25f, "lime"));

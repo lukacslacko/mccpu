@@ -59,6 +59,11 @@ public class MCRenderTarget extends RenderTarget {
     }
 
     @Override
+    void setRedstoneTorch(Location location) {
+        world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(Material.REDSTONE_TORCH);
+    }
+
+    @Override
     public void setStickyPiston(Location location, BlockFace facing) {
         Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
         block.setType(Material.STICKY_PISTON);
