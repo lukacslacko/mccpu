@@ -17,7 +17,7 @@ public class MCCPU extends JavaPlugin {
             Location playerLocation =
                     new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
             Location start = playerLocation.shifted(new Vector(5, 0, 5));
-            new CPU(start).render(target);
+            new Pelda(start, new Vector(1, 0, 0), new Vector(0, 0, 1), Wire.BLUE).render(target);
         }
         return true;
     }
