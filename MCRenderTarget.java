@@ -42,7 +42,7 @@ public class MCRenderTarget extends RenderTarget {
     @Override
     public void setTopSlab(Location location) {
         Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
-        block.setType(Material.GLOWSTONE);
+        block.setType(Material.QUARTZ_SLAB);
         Slab slab = (Slab) block.getBlockData();
         slab.setType(Slab.Type.TOP);
         block.setBlockData(slab);

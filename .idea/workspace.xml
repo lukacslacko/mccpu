@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Components.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Inc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Component.java" afterPath="$PROJECT_DIR$/Component.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCCPU.java" afterPath="$PROJECT_DIR$/MCCPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.svg" afterPath="$PROJECT_DIR$/main.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/Main.java" afterPath="$PROJECT_DIR$/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.yml" afterPath="$PROJECT_DIR$/plugin.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCRenderTarget.java" afterPath="$PROJECT_DIR$/MCRenderTarget.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,9 +41,21 @@
       <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="68" lean-forward="true" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MCRenderTarget.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MCRenderTarget.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,17 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Xor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Xor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SVGRenderTarget.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SVGRenderTarget.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SVGRenderTarget.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1966">
@@ -168,7 +162,6 @@
         <option value="$PROJECT_DIR$/CPU.java" />
         <option value="$PROJECT_DIR$/Xor.java" />
         <option value="$PROJECT_DIR$/RenderTarget.java" />
-        <option value="$PROJECT_DIR$/MCRenderTarget.java" />
         <option value="$PROJECT_DIR$/SVGRenderTarget.java" />
         <option value="$PROJECT_DIR$/Pelda.java" />
         <option value="$PROJECT_DIR$/Inc.java" />
@@ -177,6 +170,7 @@
         <option value="$PROJECT_DIR$/plugin.yml" />
         <option value="$PROJECT_DIR$/Components.java" />
         <option value="$PROJECT_DIR$/MCCPU.java" />
+        <option value="$PROJECT_DIR$/MCRenderTarget.java" />
       </list>
     </option>
   </component>
@@ -596,21 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MCRenderTarget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <marker date="1553895222506" expanded="true" signature="1676:1972" ph="{...}" />
-            <marker date="1553895222506" expanded="true" signature="2033:2150" ph="{...}" />
-            <marker date="1553895222506" expanded="true" signature="2235:2505" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Xor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -661,14 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCCPU.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -691,6 +662,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1966">
           <caret line="174" column="103" lean-forward="false" selection-start-line="174" selection-start-column="103" selection-end-line="174" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="68" lean-forward="true" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MCRenderTarget.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
