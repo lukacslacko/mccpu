@@ -10,6 +10,7 @@ abstract class RenderTarget {
     abstract void setWallTorch(Location location, BlockFace facing);
     abstract void setRedstoneTorch(Location location);
     abstract void setStickyPiston(Location location, BlockFace facing);
+    abstract void setComparator(Location location, BlockFace facing);
 
     void setWireBlock(Location location, Material material) {
         setBlock(location, material);

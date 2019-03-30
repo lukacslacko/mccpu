@@ -194,4 +194,14 @@ public class SVGRenderTarget extends RenderTarget {
             add(location, cuboid(location, 0.25f, 1f, 0f, 1f, 0f, 1f, "gray"));
         }
     }
+
+    @Override
+    void setComparator(Location location, BlockFace facing) {
+        int x = projX(location) + layerSizeX + gridSize /2;
+        int y = projY(location) + layerSizeY + gridSize /2;
+        int dx = (facing == BlockFace.EAST) ? -gridSize /3 : ((facing == BlockFace.WEST) ? gridSize /3 : 0);
+        int dy = (facing == BlockFace.NORTH) ? gridSize /3 : ((facing == BlockFace.SOUTH) ? -gridSize /3 : 0);
+        add(location, line(x-dx,y-dy,x+dx,y+dy, "white"));
+        add(location, line(x-dx+dy,y-dy-dx,x-dx-dy,y-dy+dx, "pink"));
+    }
 }

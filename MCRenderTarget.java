@@ -3,6 +3,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.Comparator;
 import org.bukkit.block.data.type.Piston;
 import org.bukkit.block.data.type.RedstoneWallTorch;
 import org.bukkit.block.data.type.Repeater;
@@ -70,5 +71,15 @@ public class MCRenderTarget extends RenderTarget {
         Piston piston = (Piston) block.getBlockData();
         piston.setFacing(facing);
         block.setBlockData(piston);
+    }
+
+    @Override
+    void setComparator(Location location, BlockFace facing) {
+        Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
+        block.setType(Material.COMPARATOR);
+        Comparator comparator = (Comparator) block.getBlockData();
+        comparator.setFacing(facing);
+        comparator.setMode(Comparator.Mode.SUBTRACT);
+        block.setBlockData(comparator);
     }
 }
