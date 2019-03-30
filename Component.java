@@ -38,10 +38,10 @@ class Component implements Renderer {
                         case '3': target.setStickyPiston(loc, Utils.facing(width)); break;
                         case 'E': target.setStickyPiston(loc, Utils.facing(width.times(-1))); break;
                         case '-': target.setTopSlab(loc); break;
-                        case '?': target.setComparator(loc, Utils.facing(length)); break;
-                        case 'U': target.setComparator(loc, Utils.facing(length.times(-1))); break;
-                        case '(': target.setComparator(loc, Utils.facing(width)); break;
-                        case ')': target.setComparator(loc, Utils.facing(width.times(-1))); break;
+                        case 'U': target.setComparator(loc, Utils.facing(length)); break;
+                        case '?': target.setComparator(loc, Utils.facing(length.times(-1))); break;
+                        case ')': target.setComparator(loc, Utils.facing(width)); break;
+                        case '(': target.setComparator(loc, Utils.facing(width.times(-1))); break;
                     }
                 }
             }
