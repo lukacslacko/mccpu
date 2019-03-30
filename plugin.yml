@@ -9,3 +9,7 @@ commands:
     components:
         description: List MCCPU components
         usage: /components
+    beolvas:
+        description: MCCPU beolvas
+        usage: /beolvas x1 y1 z1 x2 y2 z2
+        

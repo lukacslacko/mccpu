@@ -21,6 +21,18 @@ public class MCCPU extends JavaPlugin {
         if (label.equals("components")) {
             Bukkit.broadcastMessage(String.join(", ", Components.COMPONENTS));
         }
+        if (label.equals("beolvas")) {
+            int x1 = Integer.valueOf(args[0]);
+            int y1 = Integer.valueOf(args[1]);
+            int z1 = Integer.valueOf(args[2]);
+            int x2 = Integer.valueOf(args[3]);
+            int y2 = Integer.valueOf(args[4]);
+            int z2 = Integer.valueOf(args[5]);
+            String[][] result = new Beolvas().olvas(((Player) sender).getWorld(), Math.min(x1, x2), Math.min(y1, y2), Math.min(z1, z2), Math.max(x1, x2) - Math.min(x1, x2), Math.max(y1, y2) - Math.min(y1, y2), Math.max(z1, z2) - Math.min(z1, z2));
+            for (String[] layer : result) {
+                Bukkit.broadcastMessage(String.join("|", layer));
+            }
+        }
         return true;
     }
 }
