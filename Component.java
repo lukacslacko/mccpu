@@ -37,6 +37,7 @@ class Component implements Renderer {
                         case 'W': target.setStickyPiston(loc, Utils.facing(length.times(-1))); break;
                         case '3': target.setStickyPiston(loc, Utils.facing(width)); break;
                         case 'E': target.setStickyPiston(loc, Utils.facing(width.times(-1))); break;
+                        case '-': target.setTopSlab(loc); break;
                     }
                 }
             }

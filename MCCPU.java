@@ -16,8 +16,10 @@ public class MCCPU extends JavaPlugin {
             MCRenderTarget target = new MCRenderTarget(player.getWorld());
             Location playerLocation =
                     new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
-            Location start = playerLocation.shifted(new Vector(5, 0, 5));
-            new Pelda(start, new Vector(1, 0, 0), new Vector(0, 0, 1), Wire.BLUE).render(target);
+            Components.component(args[0], playerLocation, args[1], args[2], args[3], target);
+        }
+        if (label.equals("components")) {
+            Bukkit.broadcastMessage(String.join(", ", Components.COMPONENTS));
         }
         return true;
     }

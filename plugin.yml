@@ -5,4 +5,7 @@ api-version: 1.13
 commands:
     mccpu:
         description: MCCPU
-        usage: /mccpu
+        usage: /mccpu component_name width[north|south|east|west] length[north|south|east|west] color
+    components:
+        description: List MCCPU components
+        usage: /components
