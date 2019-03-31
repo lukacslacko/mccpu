@@ -5,6 +5,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class MCCPU extends JavaPlugin {
@@ -22,15 +24,30 @@ public class MCCPU extends JavaPlugin {
             Bukkit.broadcastMessage(String.join(", ", Components.COMPONENTS));
         }
         if (label.equals("beolvas")) {
-            int x1 = Integer.valueOf(args[0]);
-            int y1 = Integer.valueOf(args[1]);
-            int z1 = Integer.valueOf(args[2]);
-            int x2 = Integer.valueOf(args[3]);
-            int y2 = Integer.valueOf(args[4]);
-            int z2 = Integer.valueOf(args[5]);
-            String[][] result = new Beolvas().olvas(((Player) sender).getWorld(), Math.min(x1, x2), Math.min(y1, y2), Math.min(z1, z2), Math.max(x1, x2) - Math.min(x1, x2), Math.max(y1, y2) - Math.min(y1, y2), Math.max(z1, z2) - Math.min(z1, z2));
-            for (String[] layer : result) {
-                Bukkit.broadcastMessage(String.join("|", layer));
+            try {
+                int x1 = Integer.valueOf(args[0]);
+                int y1 = Integer.valueOf(args[1]);
+                int z1 = Integer.valueOf(args[2]);
+                int x2 = Integer.valueOf(args[3]);
+                int y2 = Integer.valueOf(args[4]);
+                int z2 = Integer.valueOf(args[5]);
+                String[][] result = new Beolvas().olvas(((Player) sender).getWorld(), Math.min(x1, x2), Math.min(y1, y2), Math.min(z1, z2), Math.max(x1, x2) - Math.min(x1, x2), Math.max(y1, y2) - Math.min(y1, y2), Math.max(z1, z2) - Math.min(z1, z2));
+                String[] newStrings = new String[result.length];
+                for (int i = 0; i < result.length; ++i) {
+                    String newString = "new String[] {\n";
+                    for (String row : result[i]) {
+                        newString += "\"" + row + "\",\n";
+                    }
+                    newString += "}";
+                    newStrings[i] = newString;
+                }
+                String out = String.join(",\n", newStrings);
+                Files.write(Paths.get(args[6]), out.getBytes());
+                Bukkit.broadcastMessage("Wrote results to " + args[6]);
+            }
+            catch (Exception e) {
+                Bukkit.broadcastMessage("Exception: " + e);
+                return false;
             }
         }
         return true;
