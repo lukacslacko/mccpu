@@ -10,7 +10,7 @@ public class Components {
     public static final Vector EAST = new Vector(1, 0, 0);
     public static final Vector WEST = new Vector(-1, 0, 0);
 
-    public static final String[] COMPONENTS = {"Inc", "Pelda"};
+    public static final String[] COMPONENTS = {"Inc", "Pelda", "Transmitter"};
 
     public static void component(String name, Location origin, String width, String length, String color, RenderTarget target) {
         Map<String, Vector> directions = new TreeMap<>();
@@ -32,6 +32,13 @@ public class Components {
         }
         if (name.equals("Pelda")) {
             new Pelda(
+                    origin,
+                    directions.getOrDefault(width, NORTH),
+                    directions.getOrDefault(length, WEST),
+                    materials.getOrDefault(color, Wire.BLUE)).render(target);
+        }
+        if (name.equals("Transmitter")) {
+            new Transmitter(
                     origin,
                     directions.getOrDefault(width, NORTH),
                     directions.getOrDefault(length, WEST),

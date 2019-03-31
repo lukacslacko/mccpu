@@ -14,6 +14,7 @@ public class MCCPU extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (label.equals("mccpu")) {
             Bukkit.broadcastMessage("Hello mccpu!");
+            if (args.length != 4) return false;
             Player player = (Player) sender;
             MCRenderTarget target = new MCRenderTarget(player.getWorld());
             Location playerLocation =
@@ -24,6 +25,7 @@ public class MCCPU extends JavaPlugin {
             Bukkit.broadcastMessage("Components: " + String.join(", ", Components.COMPONENTS));
         }
         if (label.equals("beolvas")) {
+            if (args.length != 7) return false;
             try {
                 int x1 = Integer.valueOf(args[0]);
                 int y1 = Integer.valueOf(args[1]);
