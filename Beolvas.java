@@ -10,27 +10,27 @@ case REDSTONE_TORCH: s += "*";break;
 case GLOWSTONE: s += "-";break;
 case QUARTZ_SLAB: s += "-";break;
 case REPEATER: Repeater rep = (Repeater)b.getBlockData();switch(rep.getFacing())
-{case NORTH: s += "<";break;
+{case NORTH: s += ">";break;
 case EAST: s += "A";break;
-case SOUTH: s += ">";break;
+case SOUTH: s += "<";break;
 case WEST: s += "V";break;}
 break;
 case REDSTONE_WALL_TORCH: RedstoneWallTorch red = (RedstoneWallTorch)b.getBlockData();switch(red.getFacing())
-{case NORTH: s += "]";break;
+{case NORTH: s += "[";break;
 case EAST: s += "v";break;
-case SOUTH: s += "[";break;
+case SOUTH: s += "]";break;
 case WEST: s += "^";break;}
 break;
 case STICKY_PISTON: Piston pis = (Piston)b.getBlockData();switch(pis.getFacing())
-{case NORTH: s += "E";break;
+{case NORTH: s += "3";break;
 case EAST: s += "W";break;
-case SOUTH: s += "3";break;
+case SOUTH: s += "E";break;
 case WEST: s += "M";break;}
 break;
 case COMPARATOR: Comparator com = (Comparator)b.getBlockData();switch(com.getFacing())
-{case NORTH: s += "(";break;
+{case NORTH: s += ")";break;
 case EAST: s += "?";break;
-case SOUTH: s += ")";break;
+case SOUTH: s += "(";break;
 case WEST: s += "U";break;}
 break;
 case PISTON_HEAD: s += " ";break;
