@@ -21,7 +21,7 @@ public class MCCPU extends JavaPlugin {
             Components.component(args[0], playerLocation, args[1], args[2], args[3], target);
         }
         if (label.equals("components")) {
-            Bukkit.broadcastMessage(String.join(", ", Components.COMPONENTS));
+            Bukkit.broadcastMessage("Components: " + String.join(", ", Components.COMPONENTS));
         }
         if (label.equals("beolvas")) {
             try {
