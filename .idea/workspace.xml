@@ -7,8 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MCCPU.java" afterPath="$PROJECT_DIR$/MCCPU.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.yml" afterPath="$PROJECT_DIR$/plugin.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pelda.java" afterPath="$PROJECT_DIR$/Pelda.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.svg" afterPath="$PROJECT_DIR$/main.svg" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,7 +43,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="true">
+          <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plugin.yml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="238">
@@ -115,17 +117,17 @@
             <entry file="file://$PROJECT_DIR$/Pelda.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="527">
-                  <caret line="31" column="17" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="31" selection-end-column="17" />
+                  <caret line="31" column="17" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="31" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+                <state relative-caret-position="102">
+                  <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -140,8 +142,8 @@
           <file leaf-file-name="Pelda.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Pelda.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="31" column="17" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+                <state relative-caret-position="884">
+                  <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -188,7 +190,6 @@
         <option value="$PROJECT_DIR$/RenderTarget.java" />
         <option value="$PROJECT_DIR$/MCRenderTarget.java" />
         <option value="$PROJECT_DIR$/main/Main.java" />
-        <option value="$PROJECT_DIR$/Pelda.java" />
         <option value="$PROJECT_DIR$/SVGRenderTarget.java" />
         <option value="$PROJECT_DIR$/Components.java" />
         <option value="$PROJECT_DIR$/Component.java" />
@@ -196,6 +197,7 @@
         <option value="$PROJECT_DIR$/Beolvas.java" />
         <option value="$PROJECT_DIR$/MCCPU.java" />
         <option value="$PROJECT_DIR$/plugin.yml" />
+        <option value="$PROJECT_DIR$/Pelda.java" />
       </list>
     </option>
   </component>
@@ -646,16 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SVGRenderTarget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -702,18 +694,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pelda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="17" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="31" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MCCPU.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="45" column="71" lean-forward="false" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pelda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="17" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="31" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -723,6 +715,16 @@
         <state relative-caret-position="238">
           <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
