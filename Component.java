@@ -42,6 +42,7 @@ class Component implements Renderer {
                         case '?': target.setComparator(loc, Utils.facing(length.times(-1))); break;
                         case ')': target.setComparator(loc, Utils.facing(width)); break;
                         case '(': target.setComparator(loc, Utils.facing(width.times(-1))); break;
+                        case ' ': target.setAir(loc);break;
                     }
                 }
             }

@@ -82,4 +82,9 @@ public class MCRenderTarget extends RenderTarget {
         comparator.setMode(Comparator.Mode.SUBTRACT);
         block.setBlockData(comparator);
     }
+    
+    @Override
+    void setAir(Location location) {
+        world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(Material.AIR);
+    }
 }

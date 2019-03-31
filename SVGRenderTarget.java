@@ -204,4 +204,8 @@ public class SVGRenderTarget extends RenderTarget {
         add(location, line(x-dx,y-dy,x+dx,y+dy, "white"));
         add(location, line(x-dx+dy,y-dy-dx,x-dx-dy,y-dy+dx, "pink"));
     }
+    
+    @Override
+    void setAir(Location location) {
+    }
 }
