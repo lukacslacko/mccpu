@@ -15,6 +15,8 @@ class Template extends Renderer {
 
     @Override
     public void render(RenderTarget target) {
+        // Mivel a fali faklyak lepotyognak, ha nincs elobb a blokk lerakva, amire kerulnek,
+        // ezert eloszor lerakjuk a blokkokat, utana a tobbi dolgot.
         for (int height = 0; height < layers.length; ++height) {
             for (int l = 0; l < layers[height].length; ++l) {
                 for (int w = 0; w < layers[height][l].length(); ++w) {
@@ -22,6 +24,16 @@ class Template extends Renderer {
                     char c = layers[height][l].charAt(w);
                     switch (c) {
                         case 'X': target.setBlock(loc, material); break;
+                    }
+                }
+            }
+        }
+        for (int height = 0; height < layers.length; ++height) {
+            for (int l = 0; l < layers[height].length; ++l) {
+                for (int w = 0; w < layers[height][l].length(); ++w) {
+                    Location loc = loc(w, l, height);
+                    char c = layers[height][l].charAt(w);
+                    switch (c) {
                         case '+': target.setWire(loc); break;
                         case '>': target.setRepeater(loc, Utils.facing(width)); break;
                         case '<': target.setRepeater(loc, Utils.facing(width.times(-1))); break;
