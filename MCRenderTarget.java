@@ -3,6 +3,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.type.Comparator;
 import org.bukkit.block.data.type.Piston;
 import org.bukkit.block.data.type.RedstoneWallTorch;
@@ -52,11 +53,12 @@ public class MCRenderTarget extends RenderTarget {
     @Override
     public void setWallTorch(Location location, BlockFace facing) {
         Block block = world.getBlockAt(location.getX(), location.getY(), location.getZ());
-        block.setType(Material.REDSTONE_WALL_TORCH);
+        block.setBlockData(Bukkit.createBlockData("minecraft:redstone_wall_torch[facing=" + facing.toString().toLowerCase() + "]"));
+/*        block.setType(Material.REDSTONE_WALL_TORCH);
         RedstoneWallTorch torch = (RedstoneWallTorch) block.getBlockData();
         torch.setFacing(facing);
         block.setBlockData(torch);
-
+*/
     }
 
     @Override
