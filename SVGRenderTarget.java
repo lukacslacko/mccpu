@@ -43,6 +43,12 @@ public class SVGRenderTarget extends RenderTarget {
 
     String getSVG() {
         StringBuilder svg = new StringBuilder("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"" + (maxX - minX) + "px\" height=\"" + (maxY - minY) + "px\">");
+        svg.append("<defs>");
+        svg.append("<linearGradient id=\"lamp\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">");
+        svg.append("<stop offset=\"0%\" style=\"stop-color:yellow\"/>");
+        svg.append("<stop offset=\"100%\" style=\"stop-color:red\"/>");
+        svg.append("</linearGradient>");
+        svg.append("</defs>");
         svg.append("<g transform=\"translate(").append(-minX).append(",").append(-minY).append(")\">");
         System.out.println(layers.size());
         for (Location location : layers.keySet()) {
@@ -207,5 +213,10 @@ public class SVGRenderTarget extends RenderTarget {
     
     @Override
     void setAir(Location location) {
+    }
+
+    @Override
+    void setLamp(Location location) {
+        add(location, cuboid(location, 0f, 1f, 0f, 1f, 0f, 1f, "url(#lamp)"));
     }
 }

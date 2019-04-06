@@ -87,4 +87,9 @@ public class MCRenderTarget extends RenderTarget {
     void setAir(Location location) {
         world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(Material.AIR);
     }
+
+    @Override
+    void setLamp(Location location) {
+        world.getBlockAt(location.getX(), location.getY(), location.getZ()).setType(Material.REDSTONE_LAMP);
+    }
 }

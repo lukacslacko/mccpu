@@ -12,6 +12,7 @@ abstract class RenderTarget {
     abstract void setStickyPiston(Location location, BlockFace facing);
     abstract void setComparator(Location location, BlockFace facing);
     abstract void setAir(Location location);
+    abstract void setLamp(Location location);
 
     void setWireBlock(Location location, Material material) {
         setBlock(location, material);

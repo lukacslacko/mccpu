@@ -9,6 +9,7 @@ case REDSTONE_WIRE: s += "+";break;
 case REDSTONE_TORCH: s += "*";break;
 case GLOWSTONE: s += "-";break;
 case QUARTZ_SLAB: s += "-";break;
+case REDSTONE_LAMP: s += "O";break;
 case REPEATER: Repeater rep = (Repeater)b.getBlockData();switch(rep.getFacing())
 {case NORTH: s += ">";break;
 case EAST: s += "A";break;

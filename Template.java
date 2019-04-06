@@ -42,6 +42,7 @@ class Template extends Renderer {
                         case ')': target.setComparator(loc, Utils.facing(width)); break;
                         case '(': target.setComparator(loc, Utils.facing(width.times(-1))); break;
                         case ' ': target.setAir(loc);break;
+                        case 'O': target.setLamp(loc);break;
                     }
                 }
             }
