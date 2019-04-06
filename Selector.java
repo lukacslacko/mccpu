@@ -1,6 +1,6 @@
 import org.bukkit.Material;
 
-public class Selector implements Renderer {
+public class Selector extends Renderer {
     // The bottom wire position of the selector.
     private Location bottom;
 
@@ -18,6 +18,7 @@ public class Selector implements Renderer {
     private Material material;
 
     Selector(Location bottom, Vector wireDirection, Vector sideDirection, int numWires, int pattern, Material material) {
+        super(bottom, new Coordinates(wireDirection, sideDirection));
         this.bottom = bottom;
         wire = wireDirection;
         side = sideDirection;
@@ -26,6 +27,7 @@ public class Selector implements Renderer {
         this.material = material;
     }
 
+    // TODO rewrite to use loc() and to use a slab step.
     @Override
     public void render(RenderTarget target) {
         Location location = new Location(bottom).above(-1);

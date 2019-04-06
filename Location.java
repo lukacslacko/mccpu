@@ -37,4 +37,8 @@ class Location {
     Location shifted(Vector v) {
         return new Location(x + v.getDx(), y + v.getDy(), z + v.getDz());
     }
+
+    Vector to(Location other) {
+        return new Vector(other.x - x, other.y - y, other.z - z);
+    }
 }

@@ -1,6 +1,6 @@
 import org.bukkit.Material;
 
-public class Ladder implements Renderer {
+public class Ladder extends Renderer {
     private Location bottom;
 
     private Vector direction;
@@ -10,6 +10,7 @@ public class Ladder implements Renderer {
     private Material material;
 
     Ladder(Location bottom, Vector direction, int numWires, Material material) {
+        super(bottom, new Coordinates(direction, direction.rotate()));
         this.bottom = bottom;
         this.direction = direction;
         this.numWires = numWires;

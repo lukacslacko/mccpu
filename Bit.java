@@ -1,19 +1,14 @@
 import org.bukkit.Material;
 
-public class Bit implements Renderer {
-    private Location origin;
+public class Bit extends Renderer {
     private Vector width, length;
     private Material material;
 
-    Bit(Location origin, Vector width, Vector length, Material material) {
-        this.origin = origin;
-        this.width = width;
-        this.length = length;
+    Bit(Location origin, Coordinates coordinates, Material material) {
+        super(origin, coordinates);
+        this.width = coordinates.at(1, 0);
+        this.length = coordinates.at(0, 1);
         this.material = material;
-    }
-
-    private Location loc(int w, int l, int above) {
-        return origin.shifted(width.times(w)).shifted(length.times(l)).above(above);
     }
 
     @Override

@@ -3,7 +3,7 @@ import org.bukkit.Material;
 import java.util.ArrayList;
 import java.util.List;
 
-class Bundle implements Renderer {
+class Bundle extends Renderer {
     private List<Wire> wires;
     private String id;
 
@@ -11,6 +11,7 @@ class Bundle implements Renderer {
 
     // From and to are for the bottom wire.
     Bundle(Location from, Location to, int numWires, String id, Material material) {
+        super(from, new Coordinates(from.to(to), from.to(to).rotate()));
         this.id = id;
         wires = new ArrayList<>();
         for (int i = 0; i < numWires; ++i) {

@@ -1,8 +1,8 @@
 import org.bukkit.Material;
 
-public class Pelda extends Component {
-    Pelda(Location origin, Vector width, Vector length, Material material) {
-        super(origin, width, length, material,
+public class Pelda extends Template {
+    Pelda(Location origin, Coordinates coordinates, Material material) {
+        super(origin, coordinates, material,
         /*        new String[] {
                         "XXXXXXXXXX",
                         "XXXXXXXXXX",

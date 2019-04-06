@@ -26,22 +26,25 @@ public class Components {
         if (name.equals("Inc")) {
             new Inc(
                     origin,
-                    directions.getOrDefault(width, NORTH),
-                    directions.getOrDefault(length, WEST),
+                    new Coordinates(
+                            directions.getOrDefault(width, NORTH),
+                            directions.getOrDefault(length, WEST)),
                     materials.getOrDefault(color, Wire.BLUE)).render(target);
         }
         if (name.equals("Pelda")) {
             new Pelda(
                     origin,
-                    directions.getOrDefault(width, NORTH),
-                    directions.getOrDefault(length, WEST),
+                    new Coordinates(
+                            directions.getOrDefault(width, NORTH),
+                            directions.getOrDefault(length, WEST)),
                     materials.getOrDefault(color, Wire.BLUE)).render(target);
         }
         if (name.equals("Transmitter")) {
             new Transmitter(
                     origin,
-                    directions.getOrDefault(width, NORTH),
-                    directions.getOrDefault(length, WEST),
+                    new Coordinates(
+                            directions.getOrDefault(width, NORTH),
+                            directions.getOrDefault(length, WEST)),
                     materials.getOrDefault(color, Wire.BLUE)).render(target);
         }
     }

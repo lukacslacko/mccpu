@@ -6,7 +6,7 @@ import java.util.List;
 import static java.lang.Math.abs;
 import static java.lang.Math.max;
 
-class Wire implements Renderer {
+class Wire extends Renderer {
     static final Material BLUE = Material.BLUE_WOOL;
     static final Material YELLOW = Material.YELLOW_WOOL;
     static final Material PINK = Material.PINK_WOOL;
@@ -38,6 +38,7 @@ class Wire implements Renderer {
 
     // Wire connecting from and to, inclusive both.
     Wire(Location from, Location to, String id, Material material) {
+        super(from, new Coordinates(from.to(to), from.to(to).rotate()));
         this.from = from;
         this.to = to;
         this.id = id;

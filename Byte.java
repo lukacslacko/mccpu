@@ -1,7 +1,6 @@
 import org.bukkit.Material;
 
-public class Byte implements Renderer {
-    private Location origin;
+public class Byte extends Renderer {
     private Vector width, length;
     private Material material, outMaterial, inMaterial, writeMaterial, readMaterial, resetMaterial ,readyMaterial, readSelectorMaterial, writeSelectorMaterial;
     private int numAddressWires, address;
@@ -10,8 +9,7 @@ public class Byte implements Renderer {
 
     Byte(
             Location origin,
-            Vector width,
-            Vector length,
+            Coordinates coordinates,
             int numAddressWires,
             int address,
             Material material,
@@ -23,9 +21,9 @@ public class Byte implements Renderer {
             Material readyMaterial,
             Material readSelectorMaterial,
             Material writeSelectorMaterial) {
-        this.origin = origin;
-        this.width = width;
-        this.length = length;
+        super(origin, coordinates);
+        this.width = coordinates.at(1, 0);
+        this.length = coordinates.at(0, 1);
         this.numAddressWires = numAddressWires;
         this.address = address;
         this.material = material;
@@ -43,17 +41,12 @@ public class Byte implements Renderer {
         return LENGTH_END - LENGTH_START + 1;
     }
 
-    private Location loc(int w, int l, int above) {
-        return origin.shifted(width.times(w)).shifted(length.times(l)).above(above);
-    }
-
-
     @Override
     public void render(RenderTarget target) {
         int outConnLength = 4;
         int inConnLength = 3;
         for (int i = 0; i < 8; ++i) {
-            new Bit(origin.above(2*i), width, length, material).render(target);
+            new Bit(loc(0, 0, 2*i), coordinates, material).render(target);
         }
 
         Ladder read = new Ladder(loc(5, -2, 0), length, 8, material);

@@ -1,8 +1,8 @@
-public class CPU implements Renderer {
+public class CPU extends Renderer {
     private Location start;
 
     public CPU(Location start) {
-        this.start = start;
+        super(start, Coordinates.NW());
     }
 
     @Override
@@ -25,9 +25,8 @@ public class CPU implements Renderer {
         Vector length = new Vector(0, 0, -1);
         for (int i = 0; i < 16; ++i) {
             new Byte(
-                    start.shifted(length.times(i * Byte.length())),
-                    width,
-                    length,
+                    loc(0, i * Byte.length(), 0),
+                    coordinates,
                     4,
                     i,
                     Wire.LIGHT_BLUE,

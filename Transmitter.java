@@ -1,8 +1,8 @@
 import org.bukkit.Material;
 
-public class Transmitter extends Component {
-    Transmitter(Location origin, Vector width, Vector length, Material material) {
-        super(origin, width, length, material,
+public class Transmitter extends Template {
+    Transmitter(Location origin, Coordinates coordinates, Material material) {
+        super(origin, coordinates, material,
 new String[] {
 "X X  ",
 "X -  ",
@@ -47,5 +47,17 @@ new String[] {
 "U+V  ",
 "X<(+ ",
 });
+    }
+
+    Location inputGate() {
+        return loc(2, -1, 0);
+    }
+
+    Location inputData() {
+        return loc(0, -1, 0);
+    }
+
+    Location output() {
+        return loc(0, 8, 3);
     }
 }

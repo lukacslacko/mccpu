@@ -1,8 +1,8 @@
 import org.bukkit.Material;
 
-public class Inc extends Component {
-    Inc(Location origin, Vector width, Vector length, Material material) {
-        super(origin, width, length, material,
+class Inc extends Template {
+    Inc(Location origin, Coordinates coordinates, Material material) {
+        super(origin, coordinates, material,
                 new String[] {
                         "    X",
                         "X-+[X",
@@ -35,5 +35,13 @@ public class Inc extends Component {
                         "+++++",
                         "    +"
                 });
+    }
+
+    Location input() {
+        return loc(4, -1, 0);
+    }
+
+    Location output() {
+        return loc(4, 13, 0);
     }
 }
