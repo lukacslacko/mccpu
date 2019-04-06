@@ -10,7 +10,8 @@ public class Components {
     public static final Vector EAST = new Vector(1, 0, 0);
     public static final Vector WEST = new Vector(-1, 0, 0);
 
-    public static final String[] COMPONENTS = {"Inc", "Pelda", "Transmitter", "Display8x8", "Comparator"};
+    public static final String[] COMPONENTS = {
+            "Pelda", "Transmitter", "Display8x8", "Comparator", "Inc8", "Dec8"};
 
     public static void component(String name, Location origin, String width, String length, String color, RenderTarget target) {
         Map<String, Vector> directions = new TreeMap<>();
@@ -23,13 +24,21 @@ public class Components {
         materials.put("blue", Wire.BLUE);
         materials.put("yellow", Wire.YELLOW);
 
-        if (name.equals("Inc")) {
-            new Inc(
+        if (name.equals("Inc8")) {
+            new Stack8(
                     origin,
                     new Coordinates(
                             directions.getOrDefault(width, NORTH),
                             directions.getOrDefault(length, WEST)),
-                    materials.getOrDefault(color, Wire.BLUE)).render(target);
+                    materials.getOrDefault(color, Wire.BLUE), Inc::new).render(target);
+        }
+        if (name.equals("Dec8")) {
+            new Stack8(
+                    origin,
+                    new Coordinates(
+                            directions.getOrDefault(width, NORTH),
+                            directions.getOrDefault(length, WEST)),
+                    materials.getOrDefault(color, Wire.BLUE), Dec::new).render(target);
         }
         if (name.equals("Pelda")) {
             new Pelda(
