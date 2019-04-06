@@ -51,7 +51,7 @@ public class Pelda extends Template {
                         " () ++<+++O",
                         "    +   +  ",
                         " ^  A   V  ",
-                        "]X[ +   +  ",
+                        "[X] +   +  ",
                         " v  ++>+++*",
                 },
                 new String[] {

@@ -4,37 +4,43 @@ class Inc extends Template {
     Inc(Location origin, Coordinates coordinates, Material material) {
         super(origin, coordinates, material,
                 new String[] {
-                        "    X",
-                        "X-+[X",
-                        "-   X",
-                        "+   X",
-                        "+   X",
-                        "XXX X",
-                        "X X  ",
-                        "X X X",
-                        "XX XX",
-                        "X   X",
-                        "X   X",
-                        "     ",
-                        "XXXXX",
-                        "    X"
+                        "     X",
+                        "XX-+[X",
+                        "-    X",
+                        "++   X",
+                        " +   X",
+                        " XXX X",
+                        " X X  ",
+                        " X X X",
+                        " XX XX",
+                        " X   X",
+                        " X   X",
+                        "      ",
+                        " XXXXX",
+                        "     X"
                 },
                 new String[] {
-                        "    +",
-                        "++- +",
-                        "+   +",
-                        "X   +",
-                        "-   +",
-                        "+>+[X",
-                        "V + v",
-                        "+ X +",
-                        "++v++",
-                        "+   +",
-                        "X   X",
-                        "v   v",
-                        "+++++",
-                        "    +"
+                        "     +",
+                        "+<+- +",
+                        "+    +",
+                        "XX   +",
+                        " -   +",
+                        " +>+[X",
+                        " V + v",
+                        " + X +",
+                        " ++v++",
+                        " +   +",
+                        " X   X",
+                        " v   v",
+                        " +++++",
+                        "     +"
                 });
+    }
+
+    @Override
+    public void render(RenderTarget target) {
+        super.render(target);
+        target.setTopSlab(loc(3, 1, -1));
     }
 
     Location input() {
