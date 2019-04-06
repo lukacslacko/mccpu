@@ -41,13 +41,14 @@ class Inc extends Template {
     public void render(RenderTarget target) {
         super.render(target);
         target.setTopSlab(loc(3, 1, -1));
+        target.setWire(loc(3, 1, 0));
     }
 
     Location input() {
-        return loc(4, -1, 0);
+        return loc(5, -1, 0);
     }
 
     Location output() {
-        return loc(4, 13, 0);
+        return loc(5, 13, 0);
     }
 }
