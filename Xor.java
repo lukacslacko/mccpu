@@ -6,6 +6,7 @@ class Xor extends Template {
                 new String[] {
                         "X   X",
                         "X   X",
+                        "X   X",
                         "  X  ",
                         "  X  ",
                         "X   X",
@@ -13,9 +14,11 @@ class Xor extends Template {
                         "X   X",
                         "  X  ",
                         "  X  ",
+                        "  X  ",
                         "  X  "
                 },
                 new String[] {
+                        "+   +",
                         "+   +",
                         "+   +",
                         "X]+[X",
@@ -25,7 +28,8 @@ class Xor extends Template {
                         "+   +",
                         "X]+[X",
                         "  +  ",
-                        "  +  "
+                        "  +  ",
+                        "  +  ",
                 });
     }
 
@@ -38,6 +42,6 @@ class Xor extends Template {
     }
 
     Location output() {
-        return loc(2, 9, 0);
+        return loc(2, 11, 0);
     }
 }
