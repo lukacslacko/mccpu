@@ -1,8 +1,10 @@
 package cpu;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.Comparator;
 
-public class Location {
+public class Location implements Comparable<Location> {
     private int x, y, z;
 
     @Override
@@ -28,15 +30,16 @@ public class Location {
         return rotated.shifted(toCenter.times(-1));
     }
 
-    public static class Comparator implements java.util.Comparator<Location> {
-        @Override
-        public int compare(Location location1, Location location2) {
-            int compY = Integer.compare(location1.getY(), location2.getY());
-            if (compY != 0) return compY;
-            int compZ = Integer.compare(location1.getZ(), location2.getZ());
-            if (compZ != 0) return compZ;
-            return Integer.compare(location1.getX(), location2.getX());
-        }
+    // A blokkok azert vannak igy rendezve, hogy az svg szepen rajzolja ki oket, egyiket a masik ele es fole.
+    @Override
+    public int compareTo(@NotNull Location other) {
+        Location location1 = this;
+        Location location2 = other;
+        int compY = Integer.compare(location1.getY(), location2.getY());
+        if (compY != 0) return compY;
+        int compZ = Integer.compare(location1.getZ(), location2.getZ());
+        if (compZ != 0) return compZ;
+        return Integer.compare(location1.getX(), location2.getX());
     }
 
     public Location(int x, int y, int z) {

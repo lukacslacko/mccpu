@@ -8,8 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public abstract class Component {
-    // A blokkok azert vannak igy rendezve, hogy az svg szepen rajzolja ki oket.
-    private Map<Location, Block> blocks = new TreeMap<>(new Location.Comparator());
+    private Map<Location, Block> blocks = new TreeMap<>();
 
     public abstract String name();
     public abstract String kind();
