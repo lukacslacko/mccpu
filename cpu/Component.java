@@ -27,6 +27,16 @@ public abstract class Component {
         blocks.put(location, block);
     }
 
+    protected void remove(Location location) {
+        if (blocks.containsKey(location)) {
+            blocks.remove(location);
+        } else {
+            throw new IllegalArgumentException(
+                    "In component " + describe() + " location " + location + " does not contain "
+                    + " any block, it cannot be removed");
+        }
+    }
+
     public void merge(Component other) {
         for (Location location : other.blocks.keySet()) {
             try {
