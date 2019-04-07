@@ -21,7 +21,7 @@ public class Location implements Comparable<Location> {
     }
 
     public Location rotatedAround(Location center, int quarters) {
-        Vector toCenter = to(center);
+        Vector toCenter = center.to(Location.origin());
         Location rotated = shifted(toCenter);
         while (quarters < 0) { quarters += 4; }
         for (; quarters > 0; --quarters) {

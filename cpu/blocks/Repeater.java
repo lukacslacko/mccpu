@@ -21,7 +21,7 @@ public class Repeater extends FacingBlock {
     @Override
     public void put(Location location, SVG svg) {
         float dx = (blockFace == BlockFace.EAST) ? -0.5f : ((blockFace == BlockFace.WEST) ? 0.5f : 0);
-        float dz = (blockFace == BlockFace.NORTH) ? -0.5f : ((blockFace == BlockFace.SOUTH) ? 0.5f : 0);
+        float dz = (blockFace == BlockFace.NORTH) ? 0.5f : ((blockFace == BlockFace.SOUTH) ? -0.5f : 0);
         svg.append(
                 location,
                 svg.line(

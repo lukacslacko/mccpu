@@ -27,7 +27,7 @@ public abstract class Component {
         blocks.put(location, block);
     }
 
-    protected void merge(Component other) {
+    public void merge(Component other) {
         for (Location location : other.blocks.keySet()) {
             try {
                 add(location, other.blocks.get(location));

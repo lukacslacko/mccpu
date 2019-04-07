@@ -3,7 +3,7 @@ package cpu;
 public class Vector {
     private int dx, dy, dz;
 
-    Vector(int dx, int dy, int dz) {
+    public Vector(int dx, int dy, int dz) {
         this.dx = dx;
         this.dy = dy;
         this.dz = dz;
