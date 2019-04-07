@@ -73,8 +73,8 @@ public class SVG {
         return "<circle cx=\"" + c[0] + "\" cy=\"" + c[1] + "\" r=\"" + r + "\" style=\"" + style + ";fill:" + color + ";stroke:none;stroke-width:" + blockStrokeWidth + "\"/>";
     }
 
-    public String line(float[] a, float[] b, String color) {
-        return "<line x1=\"" + a[0] + "\" y1=\"" + a[1] + "\" x2=\"" + b[0] + "\" y2=\"" + b[1] + "\" style=\"stroke:" + color + ";stroke-width:2\"/>";
+    public String line(float[] a, float[] b, String color, int width) {
+        return "<line x1=\"" + a[0] + "\" y1=\"" + a[1] + "\" x2=\"" + b[0] + "\" y2=\"" + b[1] + "\" style=\"stroke:" + color + ";stroke-width:" + width + "\"/>";
     }
 
     public String color(Material material) {
@@ -89,6 +89,7 @@ public class SVG {
             case ORANGE_WOOL: return "orange";
             case PURPLE_WOOL: return "purple";
             case BROWN_WOOL: return "brown";
+            case REDSTONE_LAMP: return "url(#lamp)";
             default: throw new IllegalArgumentException("Ismeretlen anyag " + material);
         }
     }

@@ -35,6 +35,20 @@ public class Template extends Component {
             case '>': add(location, new Repeater(BlockFace.WEST)); return;
             case 'A': add(location, new Repeater(BlockFace.SOUTH)); return;
             case 'V': add(location, new Repeater(BlockFace.NORTH)); return;
+            case '3': add(location, new StickyPiston(BlockFace.EAST)); return;
+            case 'E': add(location, new StickyPiston(BlockFace.WEST)); return;
+            case 'W': add(location, new StickyPiston(BlockFace.SOUTH)); return;
+            case 'M': add(location, new StickyPiston(BlockFace.NORTH)); return;
+            case '*': add(location, new RedstoneTorch()); return;
+            case '[': add(location, new RedstoneWallTorch(BlockFace.WEST)); return;
+            case ']': add(location, new RedstoneWallTorch(BlockFace.EAST)); return;
+            case '^': add(location, new RedstoneWallTorch(BlockFace.NORTH)); return;
+            case 'v': add(location, new RedstoneWallTorch(BlockFace.SOUTH)); return;
+            case ')': add(location, new SubtractComparator(BlockFace.WEST)); return;
+            case '(': add(location, new SubtractComparator(BlockFace.EAST)); return;
+            case 'U': add(location, new SubtractComparator(BlockFace.NORTH)); return;
+            case '?': add(location, new SubtractComparator(BlockFace.SOUTH)); return;
+            case 'O': add(location, new Solid(Material.REDSTONE_LAMP)); return;
             default: throw new IllegalArgumentException("Ismeretlen betu: '" + c + "'");
         }
     }

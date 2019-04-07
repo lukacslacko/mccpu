@@ -27,19 +27,37 @@ public class Repeater extends FacingBlock {
                 svg.line(
                         svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
                         svg.proj(location, 0.5f-dx, 0, 0.5f-dz),
-                        "white"));
+                        "red", 3));
         svg.append(
                 location,
                 svg.line(
                         svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
                         svg.proj(location, 0.5f-dz, 0, 0.5f+dx),
-                        "white"));
+                        "red", 3));
         svg.append(
                 location,
                 svg.line(
                         svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
                         svg.proj(location, 0.5f+dz, 0, 0.5f-dx),
-                        "white"));
+                        "red", 3));
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f-dx, 0, 0.5f-dz),
+                        "white", 2));
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f-dz, 0, 0.5f+dx),
+                        "white", 2));
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f+dz, 0, 0.5f-dx),
+                        "white", 2));
     }
 
     @Override

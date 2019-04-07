@@ -7,19 +7,19 @@ public class Example extends Template {
     public Example(String name, Material material) {
         super(name, "example", material,
                 new String[] {
-                        "XXXXXXXXXX",
-                        "XXXXXXXXXX",
-                        "XXXXXXXXXX",
-                        "XXXXXXXXXX",
-                        "XXXXXXXXXX",
-                        "----------",
+                        "XXXXXXXXXXXXX",
+                        "XXXXXXXXXXXXX",
+                        "XXXXXXXXXXXXX",
+                        "XXXXXXXXXXXXX",
+                        "XXXXXXXXXXXXX",
+                        "-------------",
                 },
                 new String[] {
-                        "++++>++   ",
-                        "  +   +   ",
-                        "  A   V   ",
-                        "  +   +   ",
-                        "  ++<++   ",
+                        "++++>)+O    ",
+                        "  ? ^ +   M  ",
+                        "  A[X]V  E*3 ",
+                        "  + v U   W  ",
+                        "  +(<++      ",
                 });
     }
 }

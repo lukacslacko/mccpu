@@ -17,9 +17,9 @@ public class Main {
         Example example = new Example("main", Material.BLUE_WOOL);
         Example example2 = new Example("main2", Material.YELLOW_WOOL);
         example2.rotateAround(Location.origin(), 1);
-        example2.shift(new Vector(16, 0, 0));
+        example2.shift(new Vector(20, 0, 0));
         example.merge(example2);
-        example.rotateAround(Location.origin(), 1);
+        example.rotateAround(Location.origin(), 0);
         example.put(svg);
         try {
             FileUtils.writeStringToFile(new File("main.svg"), svg.getSvg(), "utf-8");
