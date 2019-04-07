@@ -6,20 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cpu/blocks/RedstoneTorch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cpu/blocks/RedstoneWallTorch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cpu/blocks/StickyPiston.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cpu/blocks/SubtractComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/mccpu.jar" afterPath="$PROJECT_DIR$/out/mccpu.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cpu/Template.java" afterPath="$PROJECT_DIR$/cpu/Template.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cpu/blocks/Repeater.java" afterPath="$PROJECT_DIR$/cpu/blocks/Repeater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cpu/components/Example.java" afterPath="$PROJECT_DIR$/cpu/components/Example.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cpu/render/SVG.java" afterPath="$PROJECT_DIR$/cpu/render/SVG.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.svg" afterPath="$PROJECT_DIR$/main.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main/Main.java" afterPath="$PROJECT_DIR$/main/Main.java" />
-    </list>
+    <list default="true" id="07e64c19-ab66-437b-90c4-d5b58fb66a44" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
