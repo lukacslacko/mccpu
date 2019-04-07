@@ -1,10 +1,8 @@
 package cpu;
 
-import cpu.blocks.Air;
-import cpu.blocks.Solid;
-import cpu.blocks.TopSlab;
-import cpu.blocks.Wire;
+import cpu.blocks.*;
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 
 public class Template extends Component {
     private final String name, kind;
@@ -33,6 +31,10 @@ public class Template extends Component {
             case 'X': add(location, new Solid(material)); return;
             case '+': add(location, new Wire()); return;
             case '-': add(location, new TopSlab()); return;
+            case '>': add(location, new Repeater(BlockFace.EAST)); return;
+            case '<': add(location, new Repeater(BlockFace.WEST)); return;
+            case 'A': add(location, new Repeater(BlockFace.SOUTH)); return;
+            case 'V': add(location, new Repeater(BlockFace.NORTH)); return;
             default: throw new IllegalArgumentException("Ismeretlen betu: '" + c + "'");
         }
     }

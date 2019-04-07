@@ -45,6 +45,8 @@ public class Location {
         this.z = z;
     }
 
+    public static Location origin() { return new Location(0, 0, 0); }
+
     Location(Location location) {
         x = location.x;
         y = location.y;
@@ -63,7 +65,7 @@ public class Location {
         return new Location(x + v.getDx(), y + v.getDy(), z + v.getDz());
     }
 
-    Vector to(Location other) {
+    public Vector to(Location other) {
         return new Vector(other.x - x, other.y - y, other.z - z);
     }
 }

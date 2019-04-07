@@ -1,4 +1,7 @@
+import cpu.components.Components;
+import cpu.render.Minecraft;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -7,22 +10,37 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MCCPU extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (label.equals("mccpu")) {
-            Bukkit.broadcastMessage("Hello mccpu!");
-            if (args.length != 4) return false;
+            if (args.length != 5) return false;
             Player player = (Player) sender;
-            MCRenderTarget target = new MCRenderTarget(player.getWorld());
-            Location playerLocation =
-                    new Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
-            Components.component(args[0], playerLocation, args[1], args[2], args[3], target);
+            Minecraft minecraft = new Minecraft(player.getWorld());
+            cpu.Location playerLocation =
+                    new cpu.Location(player.getLocation().getBlockX(), player.getLocation().getBlockY(), player.getLocation().getBlockZ());
+            try {
+                cpu.components.Components.Kind kind = Components.Kind.valueOf(args[0]);
+                int x = Integer.valueOf(args[1]);
+                int y = Integer.valueOf(args[2]);
+                int z = Integer.valueOf(args[3]);
+                int quarters = Integer.valueOf(args[4]);
+                cpu.components.Components.place(kind, new cpu.Location(x, y, z), quarters, Material.BLUE_WOOL, minecraft);
+            } catch (Throwable e) {
+                Bukkit.broadcastMessage("MCCPU exception: " + e);
+                while (e.getCause() != null) {
+                    e = e.getCause();
+                    Bukkit.broadcastMessage("MCCPU caused by: " + e);
+                }
+                return false;
+            }
         }
         if (label.equals("components")) {
-            Bukkit.broadcastMessage("Components: " + String.join(", ", Components.COMPONENTS));
+            Bukkit.broadcastMessage("Components: " + Arrays.deepToString(Components.Kind.values()));
         }
         if (label.equals("beolvas")) {
             if (args.length != 7) return false;

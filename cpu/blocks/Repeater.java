@@ -9,22 +9,37 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
 public class Repeater extends FacingBlock {
+    public Repeater(BlockFace blockFace) {
+        super(blockFace);
+    }
+
     @Override
-    protected String describe() {
+    protected String facingDescribe() {
         return "repeater";
     }
 
     @Override
     public void put(Location location, SVG svg) {
-        /*
-        int x = svg.projX(location) + svg.layerSizeX + svg.gridSize /2;
-        int y = projY(location) + layerSizeY + gridSize /2;
-        int dx = (facing == BlockFace.EAST) ? -gridSize /2 : ((facing == BlockFace.WEST) ? gridSize /2 : 0);
-        int dy = (facing == BlockFace.NORTH) ? gridSize /2 : ((facing == BlockFace.SOUTH) ? -gridSize /2 : 0);
-        add(location, line(x+dx,y+dy,x-dx,y-dy, "white"));
-        add(location, line(x+dx,y+dy,x-dy,y+dx, "white"));
-        add(location, line(x+dx,y+dy,x+dy,y-dx, "white"));
-        */
+        float dx = (blockFace == BlockFace.EAST) ? -0.5f : ((blockFace == BlockFace.WEST) ? 0.5f : 0);
+        float dz = (blockFace == BlockFace.NORTH) ? -0.5f : ((blockFace == BlockFace.SOUTH) ? 0.5f : 0);
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f-dx, 0, 0.5f-dz),
+                        "white"));
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f-dz, 0, 0.5f+dx),
+                        "white"));
+        svg.append(
+                location,
+                svg.line(
+                        svg.proj(location, 0.5f+dx, 0, 0.5f+dz),
+                        svg.proj(location, 0.5f+dz, 0, 0.5f-dx),
+                        "white"));
     }
 
     @Override

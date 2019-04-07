@@ -14,7 +14,7 @@ public class Wire extends Block {
 
     @Override
     public void put(Location location, SVG svg) {
-        svg.setWire(location);
+        svg.append(location, svg.circle(svg.proj(location, 0.5f, 0f, 0.5f), svg.getGridSize() / 3, "red"));
     }
 
     @Override

@@ -11,18 +11,6 @@ public class SVG {
     private int maxX = Integer.MIN_VALUE;
     private int maxY = Integer.MIN_VALUE;
 
-    public int getGridSize() {
-        return gridSize;
-    }
-
-    public int getLayerSizeX() {
-        return layerSizeX;
-    }
-
-    public int getLayerSizeY() {
-        return layerSizeY;
-    }
-
     private int gridSize = 30;
     private int layerSizeX = 10;
     private int layerSizeY = 8;
@@ -81,12 +69,12 @@ public class SVG {
         return poly;
     }
 
-    private String circle(int cx, int cy, int r, String color) {
-        return "<circle cx=\"" + cx + "\" cy=\"" + cy + "\" r=\"" + r + "\" style=\"" + style + ";fill:" + color + ";stroke:none;stroke-width:" + blockStrokeWidth + "\"/>";
+    public String circle(float[] c, float r, String color) {
+        return "<circle cx=\"" + c[0] + "\" cy=\"" + c[1] + "\" r=\"" + r + "\" style=\"" + style + ";fill:" + color + ";stroke:none;stroke-width:" + blockStrokeWidth + "\"/>";
     }
 
-    private String line(int x1, int y1, int x2, int y2, String color) {
-        return "<line x1=\"" + x1 + "\" y1=\"" + y1 + "\" x2=\"" + x2 + "\" y2=\"" + y2 + "\" style=\"stroke:" + color + ";stroke-width:2\"/>";
+    public String line(float[] a, float[] b, String color) {
+        return "<line x1=\"" + a[0] + "\" y1=\"" + a[1] + "\" x2=\"" + b[0] + "\" y2=\"" + b[1] + "\" style=\"stroke:" + color + ";stroke-width:2\"/>";
     }
 
     public String color(Material material) {
@@ -105,32 +93,27 @@ public class SVG {
         }
     }
 
-    @FunctionalInterface
-    interface Converter {
-        float[] apply(float a, float b, float c);
+    public float[] proj(Location location, float x, float y, float z) {
+        float x0 = projX(location) + layerSizeX;
+        float y0 = projY(location) + layerSizeY;
+        return new float[] {x0 + x*gridSize - y*layerSizeX, y0 + z*gridSize - y*layerSizeY};
+    }
+
+    public float getGridSize() {
+        return gridSize;
     }
 
     public String cuboid(Location location, float x1, float y1, float z1, float x2, float y2, float z2, String color) {
         String cube = "";
-        int x = projX(location) + layerSizeX;
-        int y = projY(location) + layerSizeY;
-        Converter p = (a, b, c) -> new float[] {x + a*gridSize - b*layerSizeX, y + c*gridSize -b*layerSizeY};
         cube += polygon(
-                new float[][] {p.apply(x1, y1, z1), p.apply(x2, y1, z1), p.apply(x2, y1, z2), p.apply(x1, y1, z2)},
+                new float[][] {proj(location, x1, y1, z1), proj(location, x2, y1, z1), proj(location, x2, y1, z2), proj(location, x1, y1, z2)},
                 color);
         cube += polygon(
-                new float[][] {p.apply(x2, y1, z1), p.apply(x2, y1, z2), p.apply(x2, y2, z2), p.apply(x2, y2, z1)},
+                new float[][] {proj(location, x2, y1, z1), proj(location, x2, y1, z2), proj(location, x2, y2, z2), proj(location, x2, y2, z1)},
                 color);
         cube += polygon(
-                new float[][] {p.apply(x1, y1, z2), p.apply(x1, y2, z2), p.apply(x2, y2, z2), p.apply(x2, y1, z2)},
+                new float[][] {proj(location, x1, y1, z2), proj(location, x1, y2, z2), proj(location, x2, y2, z2), proj(location, x2, y1, z2)},
                 color);
         return cube;
     }
-
-    public void setWire(Location location) {
-        int x = projX(location);
-        int y = projY(location);
-        append(location, circle(x + layerSizeX + gridSize /2, y + layerSizeY + gridSize /2, gridSize /3, "red"));
-    }
-
 }
