@@ -8,7 +8,7 @@ abstract class Renderer {
     }
 
     void rotate(int quarters) {
-        coordinates.rotate(quarters);
+        coordinates = coordinates.rotate(quarters);
     }
 
     void shift(Vector v) {
