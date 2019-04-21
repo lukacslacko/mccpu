@@ -7,10 +7,12 @@ import org.bukkit.block.BlockFace;
 public class Template extends Component {
     private final String name, kind;
 
+    // A layersben jobbra: pozitiv x, lefele: pozitiv z.
     public Template(String name, String kind, Material material, String[]... layers) {
         this.name = name;
         this.kind = kind;
         for (int h = 0; h < layers.length; ++h) {
+            if (layers[h] == null) continue;
             for (int l = 0; l < layers[h].length; ++l) {
                 for (int w = 0; w < layers[h][l].length(); ++w) {
                     Location location = new Location(w, h, l);

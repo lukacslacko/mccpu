@@ -11,8 +11,20 @@ abstract public class Block {
 
     abstract protected String describe();
 
+    abstract protected boolean same(Block other);
+
     abstract public void put(Location location, SVG svg);
     abstract public void put(Location location, Minecraft minecraft);
 
     public void rotate(int quarters) {}
+
+    public void flipX() {}
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Block) {
+            return same((Block)other);
+        }
+        return false;
+    }
 }

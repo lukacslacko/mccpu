@@ -14,6 +14,11 @@ public class TopSlab extends Block {
     }
 
     @Override
+    protected boolean same(Block other) {
+        return other instanceof TopSlab;
+    }
+
+    @Override
     public void put(Location location, SVG svg) {
         svg.append(location, svg.cuboid(location, 0f, 1f, 0f, 1f, 0.5f, 1f, "white"));
     }

@@ -19,6 +19,11 @@ public class Solid extends Block {
     }
 
     @Override
+    protected boolean same(Block other) {
+        return other instanceof Solid && material == ((Solid) other).material;
+    }
+
+    @Override
     public void put(Location location, SVG svg) {
         svg.append(location, svg.cuboid(location, 0, 1, 0, 1, 0, 1, svg.color(material)));
     }

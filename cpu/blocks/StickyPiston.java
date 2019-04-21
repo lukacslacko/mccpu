@@ -20,6 +20,11 @@ public class StickyPiston extends FacingBlock {
     }
 
     @Override
+    protected boolean facingSame(FacingBlock other) {
+        return other instanceof StickyPiston;
+    }
+
+    @Override
     public void put(Location location, SVG svg) {
         if (blockFace == BlockFace.NORTH) {
             svg.append(location, svg.cuboid(location, 0f, 1f, 0f, 1f, 0f, 0.25f, "lime"));

@@ -1,9 +1,8 @@
-package cpu.components;
+package cpu.components.arithmetic;
 
 import cpu.Component;
 import cpu.Location;
 import cpu.Vector;
-import cpu.blocks.Solid;
 import cpu.blocks.TopSlab;
 import org.bukkit.Material;
 
@@ -21,6 +20,8 @@ public class Inc extends Component {
         }
         add(new Location(3, -1, 1), new TopSlab());
         remove(new Location(3, 2*bits-1, 1));
+        setMarker("input", new Location(5, 0, -1));
+        setMarker("output", new Location(5, 0, 13));
     }
 
     @Override

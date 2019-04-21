@@ -4,26 +4,25 @@ import cpu.Block;
 import cpu.Location;
 import cpu.render.Minecraft;
 import cpu.render.SVG;
-import org.bukkit.Material;
 
-public class Wire extends Block {
+public class ErrorBlock extends Block {
     @Override
     protected String describe() {
-        return "wire";
+        return "error";
     }
 
     @Override
     protected boolean same(Block other) {
-        return other instanceof Wire;
+        return other instanceof ErrorBlock;
     }
 
     @Override
     public void put(Location location, SVG svg) {
-        svg.append(location, svg.circle(svg.proj(location, 0.5f, 0f, 0.5f), svg.getGridSize() / 3, "red"));
+        svg.append(location, svg.cuboid(location, 0.2f, 0.8f, 0.2f, 0.8f, 0.2f, 0.8f, "red"));
     }
 
     @Override
     public void put(Location location, Minecraft minecraft) {
-        minecraft.at(location).setType(Material.REDSTONE_WIRE);
+
     }
 }

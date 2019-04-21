@@ -17,7 +17,7 @@ public class Vector {
     int getDy() { return dy; }
     int getDz() { return dz; }
 
-    Vector times(int n) {
+    public Vector times(int n) {
         return new Vector(n*dx, n*dy, n*dz);
     }
 
@@ -25,7 +25,7 @@ public class Vector {
         return new Vector(dz, dy, -dx);
     }
 
-    Vector rotate(int quarters) {
+    public Vector rotate(int quarters) {
         Vector v = copy();
         for (int i = 0; i < quarters; ++i) {
             v = v.rotate();
@@ -33,7 +33,7 @@ public class Vector {
         return v;
     }
 
-    Vector plus(Vector other) {
+    public Vector plus(Vector other) {
         return new Vector(dx + other.dx, dy + other.dy, dz + other.dz);
     }
 }

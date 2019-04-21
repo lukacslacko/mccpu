@@ -1,5 +1,7 @@
 package cpu;
 
+import cpu.blocks.Air;
+import cpu.blocks.ErrorBlock;
 import cpu.blocks.Solid;
 import cpu.render.Minecraft;
 import cpu.render.SVG;
@@ -9,6 +11,7 @@ import java.util.TreeMap;
 
 public abstract class Component {
     private Map<Location, Block> blocks = new TreeMap<>();
+    private Map<String, Location> markers = new TreeMap<>();
 
     public abstract String name();
     public abstract String kind();
@@ -17,12 +20,19 @@ public abstract class Component {
 
     protected void add(Location location, Block block) {
         if (blocks.containsKey(location)) {
-            if (block.equals(blocks.get(location))) {
+            if (block.equals(blocks.get(location)) || block instanceof Air) {
                 return;
             }
-            throw new IllegalArgumentException(
-                    "In component " + describe() + " location " + location
-                            + " contains " + blocks.get(location) + ", cannot add " + block);
+            if (!(blocks.get(location) instanceof Air)) {
+                if (true) {
+                    throw new IllegalArgumentException(
+                            "In component " + describe() + " location " + location
+                                    + " contains " + blocks.get(location) + ", cannot add " + block);
+                } else {
+                    System.out.println("Error in Component.Add!");
+                    blocks.put(location, new ErrorBlock());
+                }
+            }
         }
         blocks.put(location, block);
     }
@@ -46,6 +56,21 @@ public abstract class Component {
                         "Cannot merge " + other.describe() + " into " + describe(), e);
             }
         }
+        for (String marker : other.markers.keySet()) {
+            String markerName = other.name() + "/" + marker;
+            if (markers.containsKey(markerName)) {
+                throw new IllegalArgumentException(
+                        "Cannot merge " + other.describe() + " into " + describe() + " because marker "
+                        + markerName + " already exists");
+            }
+            markers.put(markerName, other.markers.get(marker));
+        }
+    }
+
+    protected void inheritMarkers(Component other) {
+        for (String marker : other.markers.keySet()) {
+            setMarker(marker, other.getMarker(marker));
+        }
     }
 
     public void shift(Vector v) {
@@ -54,6 +79,9 @@ public abstract class Component {
             newBlocks.put(location.shifted(v), blocks.get(location));
         }
         blocks = newBlocks;
+        for (String marker : markers.keySet()) {
+            markers.put(marker, markers.get(marker).shifted(v));
+        }
     }
 
     public void rotateAround(Location center, int quarters) {
@@ -64,6 +92,23 @@ public abstract class Component {
             newBlocks.put(location.rotatedAround(center, quarters), block);
         }
         blocks = newBlocks;
+        for (String marker : markers.keySet()) {
+            markers.put(marker, markers.get(marker).rotatedAround(center, quarters));
+        }
+    }
+
+    public void flipX() {
+        Map<Location, Block> newBlocks = new TreeMap<>();
+        for (Location location : blocks.keySet()) {
+            Block block = blocks.get(location);
+            block.flipX();
+            newBlocks.put(new Location(-location.getX(), location.getY(), location.getZ()), block);
+        }
+        blocks = newBlocks;
+        for (String marker : markers.keySet()) {
+            Location location = markers.get(marker);
+            markers.put(marker, new Location(-location.getX(), location.getY(), location.getZ()));
+        }
     }
 
     public void put(SVG svg) {
@@ -85,5 +130,20 @@ public abstract class Component {
                 blocks.get(location).put(location, minecraft);
             }
         }
+    }
+
+    public Location getMarker(String marker) {
+        if (markers.containsKey(marker)) {
+            return markers.get(marker);
+        } else {
+            throw new IllegalArgumentException("Marker " + marker + " is not present in " + describe());
+        }
+    }
+
+    public void setMarker(String marker, Location location) {
+        if (markers.containsKey(marker)) {
+            throw new IllegalArgumentException("Marker " + marker + " already exists in " + describe());
+        }
+        markers.put(marker, location);
     }
 }

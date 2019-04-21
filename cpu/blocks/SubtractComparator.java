@@ -20,6 +20,11 @@ public class SubtractComparator extends FacingBlock {
     }
 
     @Override
+    protected boolean facingSame(FacingBlock other) {
+        return other instanceof SubtractComparator;
+    }
+
+    @Override
     public void put(Location location, SVG svg) {
         float dx = (blockFace == BlockFace.EAST) ? -0.3f : ((blockFace == BlockFace.WEST) ? 0.3f : 0);
         float dz = (blockFace == BlockFace.NORTH) ? 0.3f : ((blockFace == BlockFace.SOUTH) ? -0.3f : 0);

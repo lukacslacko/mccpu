@@ -50,7 +50,7 @@ public class Location implements Comparable<Location> {
 
     public static Location origin() { return new Location(0, 0, 0); }
 
-    Location(Location location) {
+    public Location(Location location) {
         x = location.x;
         y = location.y;
         z = location.z;
@@ -60,11 +60,11 @@ public class Location implements Comparable<Location> {
     public int getY() { return y; }
     public int getZ() { return z; }
 
-    Location above(int dy) {
+    public Location above(int dy) {
         return new Location(x, y + dy, z);
     }
 
-    Location shifted(Vector v) {
+    public Location shifted(Vector v) {
         return new Location(x + v.getDx(), y + v.getDy(), z + v.getDz());
     }
 

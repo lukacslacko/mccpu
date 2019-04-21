@@ -16,12 +16,12 @@ public class Air extends Block {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return obj instanceof Air;
+    protected String describe() {
+        return "air";
     }
 
     @Override
-    protected String describe() {
-        return "air";
+    protected boolean same(Block other) {
+        return other instanceof Air;
     }
 }

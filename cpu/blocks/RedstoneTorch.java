@@ -13,6 +13,11 @@ public class RedstoneTorch extends Block {
     }
 
     @Override
+    protected boolean same(Block other) {
+        return other instanceof RedstoneTorch;
+    }
+
+    @Override
     public void put(Location location, SVG svg) {
         svg.append(location, svg.circle(svg.proj(location, 0.5f, 0f, 0.5f), svg.getGridSize() / 3, "yellow"));
         svg.append(location, svg.circle(svg.proj(location, 0.5f, 0f, 0.5f), svg.getGridSize() / 4, "red"));

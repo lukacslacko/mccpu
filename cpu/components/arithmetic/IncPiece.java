@@ -1,4 +1,4 @@
-package cpu.components;
+package cpu.components.arithmetic;
 
 import cpu.Template;
 import org.bukkit.Material;

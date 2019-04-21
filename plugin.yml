@@ -5,11 +5,13 @@ api-version: 1.13
 commands:
     mccpu:
         description: MCCPU
-        usage: /mccpu component_name width[north|south|east|west] length[north|south|east|west] color
+        usage: /mccpu component_name x y z quarters
     components:
         description: List MCCPU components
         usage: /components
     beolvas:
         description: MCCPU beolvas
         usage: /beolvas x1 y1 z1 x2 y2 z2 filename
-        
+    setmem:
+        description: MCCPU setmem
+        usage: /setmem x y z quarters hex
